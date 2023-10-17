@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const { Schema } = mongoose;
+const { Schema, models, model } = mongoose;
 
 export interface Product {
   name: string;
