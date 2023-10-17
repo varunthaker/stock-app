@@ -16,7 +16,7 @@ export default function AuthButton() {
     <>
       <button
         onClick={() => {
-          signIn();
+          signIn("google", { callbackUrl: "/products" });
         }}
       >
         Sign in
