@@ -2,7 +2,8 @@ import mongoose from "mongoose";
 
 const { Schema, models, model } = mongoose;
 
-export interface Product {
+export interface ProductType {
+  _id: string;
   name: string;
   description: string;
   imageSrc?: string;
@@ -11,7 +12,7 @@ export interface Product {
   minStockQty: number;
 }
 
-const productSchema = new Schema<Product>({
+const productSchema = new Schema<ProductType>({
   name: { type: String, required: true },
   description: { type: String, required: true },
   imageSrc: String,
