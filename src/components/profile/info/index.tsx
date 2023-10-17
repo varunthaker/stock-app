@@ -1,14 +1,13 @@
 import AuthButton from "@/components/auth-button/AuthButton";
 import { Session } from "next-auth";
 import Image from "next/image";
+import Layout from "@/components/layout/Layout";
 
-// interface Session {
-//   user: {
-//     address: string;
-//   };
-// }
+interface ProfileInfoProps {
+  session: Session;
+}
 
-export default function ProfileInfo(session: Session) {
+export default function ProfileInfo({ session }: ProfileInfoProps) {
   return (
     <>
       <div>
@@ -28,6 +27,7 @@ export default function ProfileInfo(session: Session) {
         priority
       />
       <AuthButton />
+      <Layout />
     </>
   );
 }
