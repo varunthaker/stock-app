@@ -1,25 +1,32 @@
 import { ProductType } from "../../../../db/model/Product";
 import Image from "next/image";
-import Button from "../button/productbutton";
+import { useRouter } from "next/router";
 
 interface productProp {
   product: ProductType;
 }
 
 export default function Product({ product }: productProp) {
-  const { name, description, price, stockQty, imageSrc } = product;
+  const { name, description, price, stockQty, imageSrc, _id } = product;
+  const router = useRouter();
 
   function handleUpdate() {
     console.log("Update Button Clicked");
   }
 
-  function handleDelete() {
-    console.log("Delete Button Clicked");
+  async function handleDelete(id: string) {
+    // console.log(id);
+    // console.log("Delete Button Clicked");
+
+    await fetch(`/api/products/${id}`, {
+      method: "DELETE",
+    });
+    router.push("/products");
   }
 
   return (
     <>
-      <h1>Name: {name}</h1>
+      <h1>{name}</h1>
       <p>Description: {description}</p>
       <Image
         src={imageSrc}
@@ -29,8 +36,8 @@ export default function Product({ product }: productProp) {
       />
       <p>Price: €{price}</p>
       <p>Stock: {stockQty}units</p>
-      <Button text={"Update"} handleClick={handleUpdate} />
-      <Button text={"Delete"} handleClick={handleDelete} />
+      <button>Update</button>
+      <button onClick={() => handleDelete(_id)}>Delete</button>
     </>
   );
 }

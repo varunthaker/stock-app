@@ -5,7 +5,9 @@ import Product from "@/components/product/product";
 import useSWR from "swr";
 import { ProductType } from "../../../db/model/Product";
 import { useState } from "react";
+import Link from "next/link";
 import ProductNotFound from "@/components/product/productnotfound";
+import CreateProduct from "./create";
 
 export default function ProductPage() {
   const [userSearchInput, setUserSearchInput] = useState("");
@@ -18,10 +20,6 @@ export default function ProductPage() {
   if (isLoading) return <div>loading...</div>;
 
   // console.log("Products are", products);
-
-  function handleCreate() {
-    console.log("Create Button Clicked");
-  }
 
   const filteredProducts = products.filter((product: ProductType) => {
     return product.name.toLowerCase().includes(userSearchInput.toLowerCase());
@@ -39,11 +37,7 @@ export default function ProductPage() {
           type="text"
           placeholder="Search products"
           onChange={(event) => handleInputChange(event)}
-          // value={userSearchInput}
         ></input>
-        {/* <button type="button" onClick={(event) => handleSearchSubmit(event)}>
-          🔎
-        </button> */}
       </div>
       <ul>
         {filteredProducts.length > 0 ? (
@@ -57,9 +51,11 @@ export default function ProductPage() {
         ) : (
           <ProductNotFound searchQuery={userSearchInput} />
         )}
-        c
       </ul>
-      <Button text={"Create"} handleClick={handleCreate} />
+      <Link href="/products/create">
+        Create
+        {/* <Button text={"Create"} handleClick={handleCreate} /> */}
+      </Link>
       <Layout />
     </>
   );
