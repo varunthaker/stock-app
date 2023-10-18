@@ -37,7 +37,7 @@ export default function ProductPage() {
         <input
           type="text"
           placeholder="Search products"
-          onChange={() => handleInputChange(event)}
+          onChange={(event) => handleInputChange(event)}
           // value={}
         ></input>
         <button type="button" onClick={handleSearchSubmit}>

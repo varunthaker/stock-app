@@ -12,8 +12,12 @@ export default function App({
     <SessionProvider session={session}>
       <SWRConfig
         value={{
-          fetcher: async (...args) => {
-            const response = await fetch(...args);
+          fetcher: async (
+            input: RequestInfo,
+            init: RequestInit,
+            ...args: any[]
+          ) => {
+            const response = await fetch(input, init);
             if (!response.ok) {
               throw new Error(`Request with ${JSON.stringify(args)} failed.`);
             }
