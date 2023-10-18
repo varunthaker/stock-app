@@ -5,9 +5,10 @@ import Product from "@/components/product/product";
 import useSWR from "swr";
 import { ProductType } from "../../../db/model/Product";
 import { useState } from "react";
+import ProductNotFound from "@/components/product/productnotfound";
 
 export default function ProductPage() {
-  const [input, setInput] = useState("");
+  const [userSearchInput, setUserSearchInput] = useState("");
   const {
     data: products,
     error,
@@ -16,18 +17,18 @@ export default function ProductPage() {
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;
 
-  console.log(products);
+  // console.log("Products are", products);
 
   function handleCreate() {
     console.log("Create Button Clicked");
   }
 
-  function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
-    console.log(event.target.value);
-  }
+  const filteredProducts = products.filter((product: ProductType) => {
+    return product.name.toLowerCase().includes(userSearchInput.toLowerCase());
+  });
 
-  function handleSearchSubmit() {
-    console.log("Clicked on Handle Search");
+  function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
+    setUserSearchInput(event.target.value);
   }
 
   return (
@@ -38,20 +39,25 @@ export default function ProductPage() {
           type="text"
           placeholder="Search products"
           onChange={(event) => handleInputChange(event)}
-          // value={}
+          // value={userSearchInput}
         ></input>
-        <button type="button" onClick={handleSearchSubmit}>
+        {/* <button type="button" onClick={(event) => handleSearchSubmit(event)}>
           🔎
-        </button>
+        </button> */}
       </div>
       <ul>
-        {products.map((product: ProductType) => {
-          return (
-            <li key={product._id}>
-              <Product product={product} />
-            </li>
-          );
-        })}
+        {filteredProducts.length > 0 ? (
+          filteredProducts.map((product: ProductType) => {
+            return (
+              <li key={product._id}>
+                <Product product={product} />
+              </li>
+            );
+          })
+        ) : (
+          <ProductNotFound searchQuery={userSearchInput} />
+        )}
+        c
       </ul>
       <Button text={"Create"} handleClick={handleCreate} />
       <Layout />
