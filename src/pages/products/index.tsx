@@ -1,6 +1,4 @@
 import Layout from "@/components/layout/Layout";
-import Button from "@/components/product/button/productbutton";
-// import ProductSearchForm from "@/components/product/form";
 import Product from "@/components/product/product";
 import useSWR from "swr";
 import { ProductType } from "../../../db/model/Product";
@@ -20,7 +18,6 @@ export default function ProductPage() {
   if (isLoading) return <div>loading...</div>;
 
   // console.log("Products are", products);
-
   const filteredProducts = products.filter((product: ProductType) => {
     return product.name.toLowerCase().includes(userSearchInput.toLowerCase());
   });

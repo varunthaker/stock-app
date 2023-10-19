@@ -38,7 +38,7 @@ export default function Product({ product }: productProp) {
       <p>Price: €{price}</p>
       <p>Stock: {stockQty}units</p>
       <button>
-        <Link href={`/products/update/${_id}`}>Update</Link>
+        <Link href={`/products/${_id}/update`}>Update</Link>
       </button>
       <button onClick={() => handleDelete(_id)}>Delete</button>
     </>

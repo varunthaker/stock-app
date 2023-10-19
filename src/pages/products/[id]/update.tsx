@@ -5,7 +5,15 @@ export default function UpdateProduct() {
   const router = useRouter();
   const { id } = router.query;
 
-  console.log(id);
+  console.log("id", id);
+  const { data: product, isLoading, error } = useSWR(`api/products/${id}`);
+
+  if (error) return <div>failed to load</div>;
+  if (isLoading) return <div>loading...</div>;
+
+  console.log("products", product);
+
+  // fetch(`api/products/${id}`);
 
   return (
     <>
