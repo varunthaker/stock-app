@@ -30,7 +30,7 @@ export default function Product({ product }: productProp) {
       <h1>{name}</h1>
       <p>Description: {description}</p>
       <Image
-        src={imageSrc}
+        src={imageSrc as string}
         width={250}
         height={250}
         alt="Picture of the author"
