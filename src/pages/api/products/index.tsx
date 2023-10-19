@@ -13,4 +13,16 @@ export default async function handler(
   } else {
     response.status(404).json({ message: "Product Not Found" });
   }
+
+  if (request.method === "POST") {
+    try {
+      const productInfo = request.body;
+      await Product.create(productInfo);
+      response.status(201).json({ message: "Product Created" });
+    } catch (error) {
+      if (error instanceof Error) {
+        response.status(404).json({ message: error });
+      }
+    }
+  }
 }
