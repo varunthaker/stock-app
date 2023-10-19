@@ -1,7 +1,9 @@
 import { FormEvent } from "react";
 import { useRouter } from "next/router";
+import useSWR from "swr";
 
 export default function CreateProduct() {
+  const { mutate } = useSWR("/api/products");
   const router = useRouter();
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -17,6 +19,13 @@ export default function CreateProduct() {
       },
       body: JSON.stringify(data),
     });
+
+    if (response.ok) {
+      await response.json();
+      mutate();
+    } else {
+      console.error(`Error: ${response.status}`);
+    }
     router.push("/products");
   }
 

@@ -7,11 +7,11 @@ import { ProductType } from "../../../db/model/Product";
 import { useState } from "react";
 import Link from "next/link";
 import ProductNotFound from "@/components/product/productnotfound";
-import CreateProduct from "./create";
 
 export default function ProductPage() {
   const [userSearchInput, setUserSearchInput] = useState("");
   const {
+    mutate,
     data: products,
     error,
     isLoading,
@@ -52,10 +52,7 @@ export default function ProductPage() {
           <ProductNotFound searchQuery={userSearchInput} />
         )}
       </ul>
-      <Link href="/products/create">
-        Create
-        {/* <Button text={"Create"} handleClick={handleCreate} /> */}
-      </Link>
+      <Link href="/products/create">Create</Link>
       <Layout />
     </>
   );

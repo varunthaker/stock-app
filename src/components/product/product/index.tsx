@@ -1,6 +1,7 @@
 import { ProductType } from "../../../../db/model/Product";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 interface productProp {
   product: ProductType;
@@ -36,7 +37,9 @@ export default function Product({ product }: productProp) {
       />
       <p>Price: €{price}</p>
       <p>Stock: {stockQty}units</p>
-      <button>Update</button>
+      <button>
+        <Link href={`/products/update/${_id}`}>Update</Link>
+      </button>
       <button onClick={() => handleDelete(_id)}>Delete</button>
     </>
   );

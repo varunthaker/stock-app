@@ -7,7 +7,6 @@ export default async function handler(
   response: NextApiResponse
 ) {
   const { id } = request.query;
-  console.log(id);
 
   if (!id) {
     return;
@@ -17,5 +16,12 @@ export default async function handler(
   if (request.method === "DELETE") {
     await Product.findByIdAndDelete(id);
     response.status(200).json({ status: `Product ${id} succesfully deleted` });
+  }
+
+  if (request.method === "PATCH") {
+    await Product.findByIdAndUpdate(id, {
+      $set: request.body,
+    });
+    return response.status(200).json({ status: `Product ${id} updated` });
   }
 }
