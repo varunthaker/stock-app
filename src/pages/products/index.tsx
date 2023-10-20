@@ -1,17 +1,23 @@
 import Layout from "@/components/layout/Layout";
-import Button from "@/components/product/button/productbutton";
-// import ProductSearchForm from "@/components/product/form";
 import Product from "@/components/product/product";
 import useSWR from "swr";
 import { ProductType } from "../../../db/model/Product";
 import { useState } from "react";
 import Link from "next/link";
 import ProductNotFound from "@/components/product/productnotfound";
-import CreateProduct from "./create";
 
-export default function ProductPage() {
+interface ProductPageProps {
+  closeModal: () => void;
+  deleteProduct: () => void;
+}
+
+export default function ProductPage({
+  closeModal,
+  deleteProduct,
+}: ProductPageProps) {
   const [userSearchInput, setUserSearchInput] = useState("");
   const {
+    mutate,
     data: products,
     error,
     isLoading,
@@ -20,7 +26,6 @@ export default function ProductPage() {
   if (isLoading) return <div>loading...</div>;
 
   // console.log("Products are", products);
-
   const filteredProducts = products.filter((product: ProductType) => {
     return product.name.toLowerCase().includes(userSearchInput.toLowerCase());
   });
@@ -44,7 +49,11 @@ export default function ProductPage() {
           filteredProducts.map((product: ProductType) => {
             return (
               <li key={product._id}>
-                <Product product={product} />
+                <Product
+                  product={product}
+                  closeModal={closeModal}
+                  deleteProduct={deleteProduct}
+                />
               </li>
             );
           })
@@ -52,10 +61,7 @@ export default function ProductPage() {
           <ProductNotFound searchQuery={userSearchInput} />
         )}
       </ul>
-      <Link href="/products/create">
-        Create
-        {/* <Button text={"Create"} handleClick={handleCreate} /> */}
-      </Link>
+      <Link href="/products/create">Create</Link>
       <Layout />
     </>
   );
