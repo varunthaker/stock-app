@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { StockDataType } from "./stock";
 
 const { Schema, models, model } = mongoose;
 
@@ -10,6 +11,7 @@ export interface ProductType {
   price: number;
   stockQty: number;
   minStockQty: number;
+  stocks: StockDataType;
 }
 
 const productSchema = new Schema<ProductType>({
