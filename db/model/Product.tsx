@@ -19,6 +19,7 @@ const productSchema = new Schema<ProductType>({
   price: { type: Number, required: true },
   stockQty: { type: Number, required: true },
   minStockQty: { type: Number, required: true },
+  stocks: { type: [Schema.Types.ObjectId], ref: "Stock" },
 });
 
 const Product =

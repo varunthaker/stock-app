@@ -17,7 +17,6 @@ export default function ProductPage({
 }: ProductPageProps) {
   const [userSearchInput, setUserSearchInput] = useState("");
   const {
-    mutate,
     data: products,
     error,
     isLoading,
