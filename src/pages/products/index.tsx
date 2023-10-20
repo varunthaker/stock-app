@@ -6,7 +6,15 @@ import { useState } from "react";
 import Link from "next/link";
 import ProductNotFound from "@/components/product/productnotfound";
 
-export default function ProductPage() {
+interface ProductPageProps {
+  closeModal: () => void;
+  deleteProduct: () => void;
+}
+
+export default function ProductPage({
+  closeModal,
+  deleteProduct,
+}: ProductPageProps) {
   const [userSearchInput, setUserSearchInput] = useState("");
   const {
     mutate,
@@ -41,7 +49,11 @@ export default function ProductPage() {
           filteredProducts.map((product: ProductType) => {
             return (
               <li key={product._id}>
-                <Product product={product} />
+                <Product
+                  product={product}
+                  closeModal={closeModal}
+                  deleteProduct={deleteProduct}
+                />
               </li>
             );
           })

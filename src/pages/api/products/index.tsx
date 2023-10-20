@@ -8,10 +8,12 @@ export default async function handler(
 ) {
   await dbConnect();
   if (request.method === "GET") {
-    const products = await Product.find();
-    response.status(200).json(products);
-  } else {
-    response.status(404).json({ message: "Product Not Found" });
+    try {
+      const products = await Product.find();
+      response.status(200).json(products);
+    } catch (error) {
+      response.status(404).json({ message: "Product Not Found" });
+    }
   }
 
   if (request.method === "POST") {
@@ -21,7 +23,7 @@ export default async function handler(
       response.status(201).json({ message: "Product Created" });
     } catch (error) {
       if (error instanceof Error) {
-        response.status(404).json({ message: error });
+        response.status(404).json({ message: "POST error!!!", error });
       }
     }
   }

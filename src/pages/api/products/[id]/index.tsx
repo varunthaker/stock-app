@@ -7,10 +7,7 @@ export default async function handler(
   response: NextApiResponse
 ) {
   const { id } = request.query;
-
-  console.log("Query", request.query);
-
-  console.log(id);
+  // console.log(id);
 
   if (!id) {
     return;
@@ -19,12 +16,12 @@ export default async function handler(
   await dbConnect();
 
   if (request.method === "GET") {
-    const product = await Product.findById(id);
-    console.log("product", product);
-
-    response.status(200).json(product);
-  } else {
-    response.status(404).json({ message: "Product Not Found" });
+    try {
+      const product = await Product.findById(id);
+      response.status(200).json(product);
+    } catch (error) {
+      response.status(404).json({ message: "Product Not Found" });
+    }
   }
 
   if (request.method === "DELETE") {
