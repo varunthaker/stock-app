@@ -13,7 +13,8 @@ interface productProp {
 export default function Product({ product }: productProp) {
   const [openModal, setOpenModal] = useState(false);
   const { mutate } = useSWR("/api/products");
-  const { name, description, price, stockQty, imageSrc, _id } = product;
+  const { name, description, price, stockQty, imageSrc, _id, stockIns } =
+    product;
   const router = useRouter();
 
   async function handleDelete(id: string) {

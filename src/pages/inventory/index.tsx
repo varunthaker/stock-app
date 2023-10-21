@@ -1,8 +1,9 @@
 import Layout from "@/components/layout/Layout";
-export default function Inventory() {
+export default function InventoryPage() {
   return (
     <>
-      <h1>Hi from Inventory</h1>
+      <h1>Inventory</h1>
+
       <Layout />
     </>
   );

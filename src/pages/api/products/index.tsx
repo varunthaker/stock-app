@@ -10,6 +10,7 @@ export default async function handler(
   if (request.method === "GET") {
     try {
       const products = await Product.find();
+
       response.status(200).json(products);
     } catch (error) {
       response.status(404).json({ message: "Product Not Found" });
