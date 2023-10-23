@@ -1,8 +1,20 @@
 import mongoose from "mongoose";
-import { StockInArray } from "./StockIn";
-import { StockOutArray } from "./StockOut";
+import Stockin from "./Stockin";
+import Stockout from "./Stockout";
 
-const { Schema, models, model } = mongoose;
+const { Schema } = mongoose;
+
+type StockInArray = {
+  date: String;
+  stockInQty: Number;
+  reference: string;
+};
+
+type StockOutArray = {
+  date: string;
+  stockOutQty: Number;
+  reference: string;
+};
 
 export interface ProductType {
   _id: string;
@@ -12,8 +24,8 @@ export interface ProductType {
   price: number;
   stockQty: number;
   minStockQty: number;
-  stockIns: StockInArray;
-  stockOuts: StockOutArray;
+  stockins: StockInArray;
+  stockouts: StockOutArray;
 }
 
 const productSchema = new Schema<ProductType>({
@@ -23,8 +35,8 @@ const productSchema = new Schema<ProductType>({
   price: { type: Number, required: true },
   stockQty: { type: Number, required: true },
   minStockQty: { type: Number, required: true },
-  stockIns: { type: [Schema.Types.ObjectId], ref: "StockIn" },
-  stockOuts: { type: [Schema.Types.ObjectId], ref: "StockOut" },
+  stockins: [{ type: Schema.Types.ObjectId, ref: "Stockin" }],
+  stockouts: [{ type: Schema.Types.ObjectId, ref: "Stockout" }],
 });
 
 const Product =

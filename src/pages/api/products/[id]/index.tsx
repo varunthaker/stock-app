@@ -1,11 +1,15 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import dbConnect from "../../../../../db/connect";
 import Product from "../../../../../db/model/Product";
+import Stockin from "../../../../../db/model/Stockin";
+import Stockout from "../../../../../db/model/Stockout";
 
 export default async function handler(
   request: NextApiRequest,
   response: NextApiResponse
 ) {
+  // console.log(Stockin);
+
   const { id } = request.query;
   // console.log(id);
 
@@ -17,9 +21,14 @@ export default async function handler(
 
   if (request.method === "GET") {
     try {
-      const product = await Product.findById(id);
+      const product = await Product.findById(id).populate("stockins");
+
+      console.log(product);
+
       response.status(200).json(product);
     } catch (error) {
+      console.log("error is ", error);
+
       response.status(404).json({ message: "Product Not Found" });
     }
   }

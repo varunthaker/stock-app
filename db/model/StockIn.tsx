@@ -8,13 +8,13 @@ export type StockInArray = {
   reference: string;
 };
 
-const stockInSchema = new Schema<StockInArray>({
+const stockinSchema = new Schema<StockInArray>({
   date: String,
   stockInQty: Number,
   reference: String,
 });
 
-const StokcIn =
-  mongoose.models.StockIn || mongoose.model("StockIn", stockInSchema);
+const Stockin =
+  mongoose.models.Stockin || mongoose.model("Stockin", stockinSchema);
 
-export default StokcIn;
+export default Stockin;
