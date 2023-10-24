@@ -1,5 +1,5 @@
 interface ModalProps {
-  closeModal: () => void;
+  closeModal: (bool: boolean) => void;
   deleteProduct: (id: string) => void;
   id: string;
 }

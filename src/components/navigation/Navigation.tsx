@@ -11,9 +11,6 @@ export default function Navigation() {
       <li>
         <Link href="/inventory">Inventory</Link>
       </li>
-      <li>
-        <Link href="/user">User</Link>
-      </li>
     </ul>
   );
 }

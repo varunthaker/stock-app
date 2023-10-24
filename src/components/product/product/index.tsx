@@ -4,10 +4,12 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import useSWR from "swr";
 import { useState } from "react";
-import Modal from "@/components/model";
+import Modal from "@/components/modal";
 
 interface productProp {
   product: ProductType;
+  closeModal: () => void;
+  deleteProduct: () => void;
 }
 
 export default function Product({ product }: productProp) {

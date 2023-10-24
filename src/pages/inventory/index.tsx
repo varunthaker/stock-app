@@ -1,8 +1,17 @@
 import Layout from "@/components/layout/Layout";
-export default function Inventory() {
+import StockInModal from "@/components/stockin-modal";
+import { useState } from "react";
+
+export default function InventoryPage() {
+  const [openStockModal, setOpenStockModal] = useState(false);
+
   return (
     <>
-      <h1>Hi from Inventory</h1>
+      <h1>Inventory</h1>
+      <button onClick={() => setOpenStockModal(true)}>+</button>
+      <button onClick={() => setOpenStockModal(true)}>-</button>
+      {openStockModal && <StockInModal closeStockModal={setOpenStockModal} />}
+
       <Layout />
     </>
   );
