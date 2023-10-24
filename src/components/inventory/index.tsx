@@ -11,8 +11,15 @@ interface InventoryProductProps {
 }
 
 export default function InventoryProduct({ product }: InventoryProductProps) {
-  const { name, stockQty, imageSrc, minStockQty, stockins, stockouts } =
-    product;
+  const {
+    name,
+    stockQty,
+    imageSrc,
+    minStockQty,
+    stockins,
+    stockouts,
+    _id: id,
+  } = product;
   const [openStockModal, setOpenStockModal] = useState(false);
   const [stockButtonId, setStockButtonId] = useState("");
 
@@ -21,14 +28,24 @@ export default function InventoryProduct({ product }: InventoryProductProps) {
     setStockButtonId(event.target.id);
   }
 
-  function StockIn(stockInData: StockInArray) {
-    console.log("clicked StockIn");
-    console.log(stockInData);
+  async function StockIn(stockInData: StockInArray) {
+    await fetch(`/api/products/${id}/stockin`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(stockInData),
+    });
   }
 
-  function StockOut(stockOutData: StockOutArray) {
-    console.log("clicked StockOut");
-    console.log(stockOutData);
+  async function StockOut(stockOutData: StockOutArray) {
+    await fetch(`/api/products/${id}/stockout`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(stockOutData),
+    });
   }
 
   return (
