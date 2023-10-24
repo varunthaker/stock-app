@@ -21,14 +21,12 @@ export default async function handler(
 
   if (request.method === "GET") {
     try {
-      const product = await Product.findById(id).populate("stockins");
-
-      console.log(product);
+      const product = await Product.findById(id)
+        .populate("stockins")
+        .populate("stockouts");
 
       response.status(200).json(product);
     } catch (error) {
-      console.log("error is ", error);
-
       response.status(404).json({ message: "Product Not Found" });
     }
   }

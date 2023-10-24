@@ -8,13 +8,14 @@ import Modal from "@/components/modal";
 
 interface productProp {
   product: ProductType;
+  closeModal: () => void;
+  deleteProduct: () => void;
 }
 
 export default function Product({ product }: productProp) {
   const [openModal, setOpenModal] = useState(false);
   const { mutate } = useSWR("/api/products");
-  const { name, description, price, stockQty, imageSrc, _id, stockIns } =
-    product;
+  const { name, description, price, stockQty, imageSrc, _id } = product;
   const router = useRouter();
 
   async function handleDelete(id: string) {

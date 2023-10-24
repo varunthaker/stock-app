@@ -35,8 +35,8 @@ const productSchema = new Schema<ProductType>({
   price: { type: Number, required: true },
   stockQty: { type: Number, required: true },
   minStockQty: { type: Number, required: true },
-  stockins: [{ type: Schema.Types.ObjectId, ref: "Stockin" }],
-  stockouts: [{ type: Schema.Types.ObjectId, ref: "Stockout" }],
+  stockins: [{ type: Schema.Types.ObjectId, ref: Stockin }],
+  stockouts: [{ type: Schema.Types.ObjectId, ref: Stockout }],
 });
 
 const Product =

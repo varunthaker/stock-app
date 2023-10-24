@@ -9,7 +9,9 @@ export default async function handler(
   await dbConnect();
   if (request.method === "GET") {
     try {
-      const products = await Product.find();
+      const products = await Product.find()
+        .populate("stockins")
+        .populate("stockouts");
 
       response.status(200).json(products);
     } catch (error) {
