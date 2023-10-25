@@ -3,13 +3,25 @@ import { CategoryScale, Chart, registerables } from "chart.js";
 Chart.register(CategoryScale);
 Chart.register(...registerables);
 
-export default function Graph() {
+export default function Graph({ productGraphData }) {
+  console.log("Product Data", productGraphData);
+
+  console.log("stockOutData", productGraphData[0].stockouts);
+  const axisX = productGraphData[0].stockouts?.map((stockout) => stockout.date);
+  console.log("Stockout Data X-axis", axisX);
+
+  const axisY = productGraphData[0].stockouts?.map(
+    (stockout) => stockout.stockOutQty
+  );
+
+  console.log("Stockout Data Y-axis", axisY);
+
   const dataLine = {
-    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+    labels: axisX,
     datasets: [
       {
         label: "Product Sale in Unit",
-        data: [33, 25, 35, 51, 54, 76],
+        data: axisY,
         fill: false,
         borderColor: "#742774",
       },
