@@ -17,8 +17,8 @@ export default function Analysis() {
   return (
     <>
       <h1>Hi from Analysis</h1>
-      <InventoryAnalysisTable productTableData={products} />
       <Graph productGraphData={products} />
+      <InventoryAnalysisTable productTableData={products} />
       <Layout />
     </>
   );

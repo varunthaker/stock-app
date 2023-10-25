@@ -1,6 +1,4 @@
 import Layout from "@/components/layout/Layout";
-import Product from "@/components/product/product";
-import StockInModal from "@/components/stockin-modal";
 import InventoryProduct from "@/components/inventory";
 
 import useSWR from "swr";
