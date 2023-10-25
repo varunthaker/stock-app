@@ -12,11 +12,9 @@ export default function Analysis() {
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;
 
-  // console.log(products);
-
   return (
     <>
-      <h1>Hi from Analysis</h1>
+      <h1>Analysis</h1>
       <Graph productGraphData={products} />
       <InventoryAnalysisTable productTableData={products} />
       <Layout />
