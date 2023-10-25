@@ -39,15 +39,17 @@ export default async function handler(
         product.stockQty = totalStockQty;
         await product.save();
       } else {
-        console.log("Error in Stock Addition");
+        return response
+          .status(400)
+          .json({ message: "Error in Stock Update to Stock Qty" });
       }
 
-      response
+      return response
         .status(200)
         .json({ status: "StockIn created and stock Updated" });
     } catch (error) {
       if (error instanceof Error) {
-        response.status(404).json({ message: "Error in Stockins", error });
+        response.status(404).json({ message: "Error in Stockin", error });
       }
     }
   }

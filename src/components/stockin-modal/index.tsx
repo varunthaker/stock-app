@@ -1,5 +1,6 @@
 import { FormEvent } from "react";
 import { StockInArray } from "../../../db/model/Stockin";
+import useSWR from "swr";
 
 interface StockModalProps {
   closeStockModal: (bool: boolean) => void;
@@ -16,7 +17,9 @@ export default function StockInModal({
     const formData = new FormData(formElement);
     const data = Object.fromEntries(formData);
 
-    handleStockIn(data);
+    //To do Investigate why this need to be converted
+    handleStockIn(data as unknown as StockInArray);
+    closeStockModal(false);
   }
 
   return (
@@ -24,7 +27,13 @@ export default function StockInModal({
       <h4>Stock In Modal</h4>
       <form onSubmit={(event) => handleSubmitForm(event)}>
         <label htmlFor="stockInQty"> Stock* </label>
-        <input type="number" name="stockInQty" id="stockInQty" required />
+        <input
+          type="number"
+          name="stockInQty"
+          id="stockInQty"
+          required
+          min={0}
+        />
         <label htmlFor="date"> Date:* </label>
         <input type="date" name="date" id="date" required />
         <label htmlFor="reference"> Reference </label>

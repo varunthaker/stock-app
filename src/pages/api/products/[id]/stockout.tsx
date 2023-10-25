@@ -24,7 +24,7 @@ export default async function handler(
         { new: true }
       );
 
-      // Update Stock based o Stock-Out Qty
+      // Update Stock based on Stock-Out Qty
       const product = await Product.findById(id).populate("stockouts");
       const totalProductStock = product.stockQty;
 
@@ -41,16 +41,18 @@ export default async function handler(
           product.stockQty = totalStockQty;
           await product.save();
         } else {
-          console.log("Error in Subtraction ");
+          return response.status(400).json({ message: "Not enough Stock" });
         }
-      } else {
-        console.log("Error in Stock Out");
       }
 
-      response.status(200).json({ status: "StockOut created" });
+      return response
+        .status(200)
+        .json({ message: "StockOut created and Stock Updated" });
     } catch (error) {
       if (error instanceof Error) {
-        response.status(404).json({ message: "Error in Stockouts", error });
+        return response
+          .status(404)
+          .json({ message: "Error in Stockout", error });
       }
     }
   }

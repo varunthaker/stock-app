@@ -11,6 +11,7 @@ export default function InventoryPage() {
     data: products,
     isLoading,
     error,
+    mutate,
   } = useSWR("/api/products", { fallbackData: [] });
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;
@@ -22,7 +23,7 @@ export default function InventoryPage() {
         {products.map((product: ProductType) => {
           return (
             <div key={product._id}>
-              <InventoryProduct product={product} />
+              <InventoryProduct product={product} mutate={mutate} />
             </div>
           );
         })}

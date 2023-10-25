@@ -25,7 +25,7 @@ export default async function handler(
         .populate("stockins")
         .populate("stockouts");
 
-      response.status(200).json(product);
+      return response.status(200).json(product);
     } catch (error) {
       response.status(404).json({ message: "Product Not Found" });
     }

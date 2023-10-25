@@ -50,12 +50,20 @@ export default function UpdateProduct() {
           defaultValue={imageSrc}
         />
         <label htmlFor="price">Price</label>
-        <input type="number" name="price" id="price" defaultValue={price} />
+        <input
+          type="number"
+          name="price"
+          id="price"
+          defaultValue={price}
+          min="0"
+          step=".01"
+        />
         <label htmlFor="stockQty">stockQty</label>
         <input
           type="number"
           name="stockQty"
           id="stockQty"
+          min="0"
           defaultValue={stockQty}
         />
         <label htmlFor="minStockQty">minStockQty</label>
@@ -64,6 +72,7 @@ export default function UpdateProduct() {
           name="minStockQty"
           id="minStockQty"
           defaultValue={minStockQty}
+          min="0"
         />
         <button type="submit">Update</button>
       </form>

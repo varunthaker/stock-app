@@ -2,7 +2,6 @@ import { FormEvent } from "react";
 import { useRouter } from "next/router";
 
 export default function CreateProduct() {
-  // const { mutate } = useSWR("/api/products");
   const router = useRouter();
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -38,11 +37,11 @@ export default function CreateProduct() {
         <label htmlFor="imgSrc">imageSrc</label>
         <input type="text" name="imageSrc" id="imageSrc" />
         <label htmlFor="price">Price</label>
-        <input type="number" name="price" id="price" />
+        <input type="number" name="price" id="price" min="0" step=".01" />
         <label htmlFor="stockQty">stockQty</label>
-        <input type="number" name="stockQty" id="stockQty" />
+        <input type="number" name="stockQty" id="stockQty" min="0" />
         <label htmlFor="minStockQty">minStockQty</label>
-        <input type="number" name="minStockQty" id="minStockQty" />
+        <input type="number" name="minStockQty" id="minStockQty" min="0" />
         <button type="submit">Create</button>
       </form>
     </>
