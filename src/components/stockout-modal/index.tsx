@@ -20,7 +20,7 @@ export default function StockOutModal({
 
   return (
     <>
-      <h4>Stock In Modal</h4>
+      <h4>Stock Out Modal</h4>
       <form onSubmit={(event) => handleSubmitForm(event)}>
         <label htmlFor="stockOutQty"> Stock* </label>
         <input type="number" name="stockOutQty" id="stockOutQty" required />
@@ -28,7 +28,9 @@ export default function StockOutModal({
         <input type="date" name="date" id="date" required />
         <label htmlFor="reference"> Reference </label>
         <input type="text" name="reference" id="reference" />
-        <button onClick={() => closeStockModal(false)}>Cancel</button>
+        <button type="button" onClick={() => closeStockModal(false)}>
+          Cancel
+        </button>
         <button type="submit">Submit</button>
       </form>
     </>

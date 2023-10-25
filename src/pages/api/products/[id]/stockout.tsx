@@ -16,12 +16,37 @@ export default async function handler(
   if (request.method === "PATCH") {
     try {
       dbConnect();
+      // Creating new stockout entry
       const newStockOutEntry = await Stockout.create(request.body);
       await Product.findByIdAndUpdate(
         id,
         { $push: { stockouts: newStockOutEntry._id } },
         { new: true }
       );
+
+      // Update Stock based o Stock-Out Qty
+      const product = await Product.findById(id).populate("stockouts");
+      const totalProductStock = product.stockQty;
+
+      const stockOutEntries = product.stockouts;
+      const stockOutEntriesLength = stockOutEntries.length;
+
+      if (stockOutEntriesLength > 0) {
+        const lasteAddedStockOutEntry =
+          stockOutEntries[stockOutEntriesLength - 1];
+
+        if (totalProductStock > lasteAddedStockOutEntry.stockOutQty) {
+          const totalStockQty =
+            totalProductStock - lasteAddedStockOutEntry.stockOutQty;
+          product.stockQty = totalStockQty;
+          await product.save();
+        } else {
+          console.log("Error in Subtraction ");
+        }
+      } else {
+        console.log("Error in Stock Out");
+      }
+
       response.status(200).json({ status: "StockOut created" });
     } catch (error) {
       if (error instanceof Error) {

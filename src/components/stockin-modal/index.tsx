@@ -29,7 +29,9 @@ export default function StockInModal({
         <input type="date" name="date" id="date" required />
         <label htmlFor="reference"> Reference </label>
         <input type="text" name="reference" id="reference" />
-        <button onClick={() => closeStockModal(false)}>Cancel</button>
+        <button type="button" onClick={() => closeStockModal(false)}>
+          Cancel
+        </button>
         <button type="submit">Submit</button>
       </form>
     </>

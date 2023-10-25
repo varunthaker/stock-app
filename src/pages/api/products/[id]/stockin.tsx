@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import dbConnect from "../../../../../db/connect";
 import Product from "../../../../../db/model/Product";
 import Stockin from "../../../../../db/model/Stockin";
+import { StockInArray } from "../../../../../db/model/Stockin";
 
 export default async function handler(
   request: NextApiRequest,
@@ -16,13 +17,34 @@ export default async function handler(
   if (request.method === "PATCH") {
     try {
       dbConnect();
+      //Creating new stockIn entry
       const newStockInEntry = await Stockin.create(request.body);
       await Product.findByIdAndUpdate(
         id,
         { $push: { stockins: newStockInEntry._id } },
         { new: true }
       );
-      response.status(200).json({ status: "StockIn created" });
+
+      //Update Stock based on stock-in Qty
+      const product = await Product.findById(id).populate("stockins");
+      const totalProductStock = product.stockQty;
+
+      const stockInEntries = product.stockins;
+      const stockInEntriesLength = stockInEntries.length;
+
+      if (stockInEntriesLength > 0) {
+        const lastAddedStockInEntry = stockInEntries[stockInEntriesLength - 1];
+        const totalStockQty =
+          totalProductStock + lastAddedStockInEntry.stockInQty;
+        product.stockQty = totalStockQty;
+        await product.save();
+      } else {
+        console.log("Error in Stock Addition");
+      }
+
+      response
+        .status(200)
+        .json({ status: "StockIn created and stock Updated" });
     } catch (error) {
       if (error instanceof Error) {
         response.status(404).json({ message: "Error in Stockins", error });
