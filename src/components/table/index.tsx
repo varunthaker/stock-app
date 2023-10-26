@@ -26,12 +26,9 @@ export default function InventoryAnalysisTable({
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable({ columns, data: TableData });
 
-  //   console.log("headergroups", headerGroups);
-  console.log("rows", rows);
-
   return (
     <>
-      <h1>Table</h1>
+      <h2>Table</h2>
       <div>
         <table {...getTableProps()}>
           <thead>
@@ -48,28 +45,17 @@ export default function InventoryAnalysisTable({
           <tbody {...getTableBodyProps()}>
             {rows.map((row, index) => {
               prepareRow(row);
-              //   const color =
-              //     row.values.stockQty > row.values.minStockQty ? "null" : "red";
-              //   console.log(color);
-              //   console.log(row.values.stockQty);
-              //   console.log(row.values.minStockQty);
+
+              const isLowStock = row.values.stockQty < row.values.minStockQty;
 
               return (
-                <tr {...row.getRowProps()}>
+                <tr
+                  {...row.getRowProps()}
+                  style={{ color: isLowStock ? "red" : null }}
+                >
                   {row.cells.map((cell, index) => {
-                    // console.log("cell", cell);
-
-                    // console.log("index", index);
-                    // console.log("cell", cell.value);
-                    // console.log(color);
-
                     return (
-                      <td
-                        {...cell.getCellProps()}
-                        // style={{ backgroundColor: { color } }}
-                      >
-                        {cell.render("Cell")}
-                      </td>
+                      <td {...cell.getCellProps()}>{cell.render("Cell")} </td>
                     );
                   })}
                 </tr>

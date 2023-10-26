@@ -31,7 +31,7 @@ export default function Graph({ productGraphData }: productGraphDataType) {
   };
   return (
     <>
-      <h1>Graph</h1>
+      <h2>Graph</h2>
       <div>
         <Bar
           data={dataLine}
