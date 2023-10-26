@@ -1,5 +1,6 @@
 import { FormEvent } from "react";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 export default function CreateProduct() {
   const router = useRouter();
@@ -43,6 +44,9 @@ export default function CreateProduct() {
         <label htmlFor="minStockQty">minStockQty</label>
         <input type="number" name="minStockQty" id="minStockQty" min="0" />
         <button type="submit">Create</button>
+        <button type="button">
+          <Link href="/products">Back</Link>
+        </button>
       </form>
     </>
   );

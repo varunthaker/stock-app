@@ -6,6 +6,7 @@ import StockOutModal from "../stockout-modal";
 import { StockInArray } from "../../../db/model/Stockin";
 import { StockOutArray } from "../../../db/model/Stockout";
 import { STOCK_UPDATE } from "@/constants/general";
+// import StockOutErrorModal from "../stockout-error-modal";
 
 interface InventoryProductProps {
   product: ProductType;
@@ -63,7 +64,6 @@ export default function InventoryProduct({
 
   return (
     <Fragment>
-      {errorMessage}
       <Image
         src={imageSrc as string}
         width={100}
@@ -75,6 +75,7 @@ export default function InventoryProduct({
       <p>MinStockQty: {minStockQty}</p>
       <button onClick={() => handleStockUpdate(STOCK_UPDATE.IN)}>+</button>
       <button onClick={() => handleStockUpdate(STOCK_UPDATE.OUT)}>-</button>
+      {/* {errorMessage && <StockOutErrorModal ErrorMessage={errorMessage} />} */}
       {openStockModal && stockButtonId === STOCK_UPDATE.IN && (
         <StockInModal
           closeStockModal={setOpenStockModal}

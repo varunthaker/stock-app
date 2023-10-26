@@ -17,6 +17,13 @@ type StockOutArray = {
 };
 
 export interface ProductType {
+  map(
+    arg0: (objectData: ProductType) => {
+      name: string;
+      Stock: number;
+      minStock: number;
+    }
+  ): unknown;
   _id: string;
   name: string;
   description: string;

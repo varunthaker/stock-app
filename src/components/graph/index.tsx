@@ -1,26 +1,28 @@
-import { Line } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 import { CategoryScale, Chart, registerables } from "chart.js";
+import { ProductType } from "../../../db/model/Product";
 Chart.register(CategoryScale);
 Chart.register(...registerables);
 
-export default function Graph({ productGraphData }) {
-  console.log("Product Data", productGraphData);
+interface productGraphDataType {
+  productGraphData: ProductType;
+}
 
-  console.log("stockOutData", productGraphData[0].stockouts);
-  const axisX = productGraphData[0].stockouts?.map((stockout) => stockout.date);
-  console.log("Stockout Data X-axis", axisX);
-
-  const axisY = productGraphData[0].stockouts?.map(
-    (stockout) => stockout.stockOutQty
-  );
-
-  console.log("Stockout Data Y-axis", axisY);
+export default function Graph({ productGraphData }: productGraphDataType) {
+  const axisX = productGraphData?.map((product: ProductType) => product.name);
+  const axisY = productGraphData?.map((product: ProductType) => {
+    return product.stockouts?.reduce(
+      (total: number, stockOut: number) => total + stockOut.stockOutQty,
+      0
+    );
+  });
 
   const dataLine = {
     labels: axisX,
     datasets: [
       {
         label: "Product Sale in Unit",
+        backgroundColor: "rgba(75,192,192,1)",
         data: axisY,
         fill: false,
         borderColor: "#742774",
@@ -29,9 +31,9 @@ export default function Graph({ productGraphData }) {
   };
   return (
     <>
-      <h1>Graph</h1>
+      <h2>Graph</h2>
       <div>
-        <Line
+        <Bar
           data={dataLine}
           options={{
             title: {

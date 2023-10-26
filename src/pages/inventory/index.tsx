@@ -1,10 +1,9 @@
 import Layout from "@/components/layout/Layout";
-import Product from "@/components/product/product";
-import StockInModal from "@/components/stockin-modal";
 import InventoryProduct from "@/components/inventory";
 
 import useSWR from "swr";
 import { ProductType } from "../../../db/model/Product";
+import PDFGenerator from "@/components/pdf-generator";
 
 export default function InventoryPage() {
   const {
@@ -28,7 +27,7 @@ export default function InventoryPage() {
           );
         })}
       </div>
-
+      <PDFGenerator dataToPrint={products} />
       <Layout />
     </>
   );
