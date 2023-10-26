@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { FormEvent } from "react";
 import useSWR from "swr";
+import Link from "next/link";
 
 export default function UpdateProduct() {
   const router = useRouter();
@@ -75,6 +76,9 @@ export default function UpdateProduct() {
           min="0"
         />
         <button type="submit">Update</button>
+        <button type="button">
+          <Link href="/products">Back</Link>
+        </button>
       </form>
     </>
   );

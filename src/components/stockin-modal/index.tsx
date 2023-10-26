@@ -1,6 +1,5 @@
 import { FormEvent } from "react";
 import { StockInArray } from "../../../db/model/Stockin";
-import useSWR from "swr";
 
 interface StockModalProps {
   closeStockModal: (bool: boolean) => void;

@@ -35,7 +35,7 @@ export default async function handler(
         const lasteAddedStockOutEntry =
           stockOutEntries[stockOutEntriesLength - 1];
 
-        if (totalProductStock > lasteAddedStockOutEntry.stockOutQty) {
+        if (totalProductStock >= lasteAddedStockOutEntry.stockOutQty) {
           const totalStockQty =
             totalProductStock - lasteAddedStockOutEntry.stockOutQty;
           product.stockQty = totalStockQty;
