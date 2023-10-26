@@ -1,6 +1,7 @@
 import { FormEvent } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import classes from "./create.module.css";
 
 export default function CreateProduct() {
   const router = useRouter();
@@ -28,26 +29,73 @@ export default function CreateProduct() {
   }
 
   return (
-    <>
-      <h3>Create Form</h3>
-      <form onSubmit={(event) => handleSubmit(event)}>
-        <label htmlFor="name">Name</label>
-        <input type="text" name="name" id="name" />
-        <label htmlFor="description">Description</label>
-        <textarea name="description" id="description" rows={4} cols={50} />
-        <label htmlFor="imgSrc">imageSrc</label>
-        <input type="text" name="imageSrc" id="imageSrc" />
-        <label htmlFor="price">Price</label>
-        <input type="number" name="price" id="price" min="0" step=".01" />
-        <label htmlFor="stockQty">stockQty</label>
-        <input type="number" name="stockQty" id="stockQty" min="0" />
-        <label htmlFor="minStockQty">minStockQty</label>
-        <input type="number" name="minStockQty" id="minStockQty" min="0" />
-        <button type="submit">Create</button>
-        <button type="button">
-          <Link href="/products">Back</Link>
+    <div className={classes.create_product}>
+      <h3 className={classes.form_header}>Create Product</h3>
+      <form className={classes.form} onSubmit={(event) => handleSubmit(event)}>
+        <label className={classes.label} htmlFor="name">
+          Name
+        </label>
+        <input className={classes.input} type="text" name="name" id="name" />
+        <label className={classes.label} htmlFor="description">
+          Description
+        </label>
+        <textarea
+          className={classes.textarea}
+          name="description"
+          id="description"
+          rows={4}
+          cols={50}
+        />
+        <label className={classes.label} htmlFor="imgSrc">
+          image URL
+        </label>
+        <input
+          className={classes.input}
+          type="text"
+          name="imageSrc"
+          id="imageSrc"
+          placeholder="Enter valid URL"
+        />
+        <label className={classes.label} htmlFor="price">
+          Price
+        </label>
+        <input
+          className={classes.input}
+          type="number"
+          name="price"
+          id="price"
+          min="0"
+          step=".01"
+        />
+        <label className={classes.label} htmlFor="stockQty">
+          Stock Qty
+        </label>
+        <input
+          className={classes.input}
+          type="number"
+          name="stockQty"
+          id="stockQty"
+          min="0"
+        />
+        <label className={classes.label} htmlFor="minStockQty">
+          Min Stock Qty
+        </label>
+        <input
+          className={classes.input}
+          type="number"
+          name="minStockQty"
+          id="minStockQty"
+          min="0"
+        />
+        <button type="submit" className={classes.create_button}>
+          Create
+        </button>
+        <button className={classes.cancel_button} type="button">
+          <Link className={classes.link} href="/products">
+            Cancel
+          </Link>
         </button>
       </form>
-    </>
+    </div>
   );
 }
