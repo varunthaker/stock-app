@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
+//@ts-ignore
 import Stockin from "./StockIn";
+//@ts-ignore
 import Stockout from "./StockOut";
 
 const { Schema } = mongoose;
