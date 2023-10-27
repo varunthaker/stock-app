@@ -47,8 +47,8 @@ export default function Product({ product }: productProp) {
         <h1 className={classes.product_header}>{name}</h1>
         <p className={classes.product_description}>{description}</p>
 
-        <p className={classes.product_stockInfo}>Price: € {price}</p>
-        <p className={classes.product_stockInfo}>Stock: {stockQty} units</p>
+        <p className={classes.product_stockInfo}>Price € {price}</p>
+        <p className={classes.product_stockInfo}>Stock {stockQty} units</p>
         <div>
           <button className={classes.update_button}>
             <Link

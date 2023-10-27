@@ -36,7 +36,7 @@ export default function ProductPage({
 
   return (
     <>
-      <div className={`${classes.products_page} `}>
+      <div className={classes.products_page}>
         <h1 className={classes.page_header}>Products</h1>
         <div className={classes.search_container}>
           <input
