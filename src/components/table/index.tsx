@@ -24,6 +24,7 @@ export default function InventoryAnalysisTable({
   );
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
+    // @ts-ignore
     useTable({ columns, data: TableData });
 
   return (
