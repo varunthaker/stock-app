@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 //@ts-ignore
-import Stockin from "./StockIn";
+import Stockin from "./tockIn";
 //@ts-ignore
 import Stockout from "./StockOut";
 
