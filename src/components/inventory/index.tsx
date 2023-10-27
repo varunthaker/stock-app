@@ -1,15 +1,11 @@
 import Image from "next/image";
 import { Fragment, useState } from "react";
-import { ProductType } from "../../../db/model/Product";
-import StockInModal from "../stockin-modal";
-import StockOutModal from "../stockout-modal";
-
-//@ts-ignore
-import { StockInArray } from "../../../db/model/StockIn";
-//@ts-ignore
-import { StockOutArray } from "../../../db/model/StockOut";
+import { ProductType } from "@/db/model/Product";
+import StockInModal from "@/db/model/StockIn";
+import StockOutModal from "@/db/model/StockOut";
+import { StockInArray } from "@/db/model/StockIn";
+import { StockOutArray } from "@/db/model/StockOut";
 import { STOCK_UPDATE } from "@/constants/general";
-// import StockOutErrorModal from "../stockout-error-modal";
 
 interface InventoryProductProps {
   product: ProductType;

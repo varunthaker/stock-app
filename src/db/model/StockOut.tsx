@@ -15,6 +15,6 @@ const stockoutSchema = new Schema<StockOutArray>({
 });
 
 const Stockout =
-  mongoose.models.Stockout || mongoose.model("Stockout", stockoutSchema);
+  mongoose.models?.Stockout || mongoose.model("Stockout", stockoutSchema);
 
 export default Stockout;

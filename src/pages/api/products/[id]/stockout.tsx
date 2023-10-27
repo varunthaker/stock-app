@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import dbConnect from "../../../../../db/connect";
-import Product from "../../../../../db/model/Product";
-import Stockout from "../../../../../db/model/Stockout";
+import dbConnect from "@/db/connect";
+import Product from "@/db/model/Product";
+import Stockout from "@/db/model/StockOut";
 
 export default async function handler(
   request: NextApiRequest,

@@ -2,7 +2,7 @@ import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import NextAuth from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
-import clientPromise from "../../../../db/mongodb.jsx";
+import clientPromise from "@/db/mongodb.jsx";
 
 export const authOptions = {
   // Configure one or more authentication providers

@@ -1,4 +1,4 @@
-import { ProductType } from "../../../../db/model/Product";
+import { ProductType } from "@/db/model/Product";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import Link from "next/link";

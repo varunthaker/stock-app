@@ -15,6 +15,6 @@ const stockinSchema = new Schema<StockInArray>({
 });
 
 const Stockin =
-  mongoose.models.Stockin || mongoose.model("Stockin", stockinSchema);
+  mongoose.models?.Stockin || mongoose.model("Stockin", stockinSchema);
 
 export default Stockin;

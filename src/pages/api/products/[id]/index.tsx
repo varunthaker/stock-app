@@ -1,18 +1,14 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import dbConnect from "../../../../../db/connect";
-import Product from "../../../../../db/model/Product";
-import Stockin from "../../../../../db/model/Stockin";
-import Stockout from "../../../../../db/model/Stockout";
+import dbConnect from "@/db/connect";
+import Product from "@/db/model/Product";
+import Stockin from "@/db/model/StockIn";
+import Stockout from "@/db/model/StockOut";
 
 export default async function handler(
   request: NextApiRequest,
   response: NextApiResponse
 ) {
-  // console.log(Stockin);
-
   const { id } = request.query;
-  // console.log(id);
-
   if (!id) {
     return;
   }

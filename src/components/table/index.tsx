@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable react-hooks/exhaustive-deps */
-import { ProductType } from "../../../db/model/Product";
+import { ProductType } from "@/db/model/Product";
 import { useTable } from "react-table";
 import React from "react";
 
@@ -11,8 +11,6 @@ interface InventoryAnalysisTable {
 export default function InventoryAnalysisTable({
   productTableData,
 }: InventoryAnalysisTable) {
-  //   console.log(productTableData);
-
   const TableData = React.useMemo(() => productTableData, []);
   const columns = React.useMemo(
     () => [

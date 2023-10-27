@@ -1,7 +1,7 @@
 import Layout from "@/components/layout/Layout";
 import Product from "@/components/product/product";
 import useSWR from "swr";
-import { ProductType } from "../../../db/model/Product";
+import { ProductType } from "@/db/model/Product";
 import { useState } from "react";
 import Link from "next/link";
 import ProductNotFound from "@/components/product/productnotfound";

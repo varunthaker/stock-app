@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import dbConnect from "../../../../db/connect";
-import Product from "../../../../db/model/Product";
+import dbConnect from "@/db/connect";
+import Product from "@/db/model/Product";
 
 export default async function handler(
   request: NextApiRequest,

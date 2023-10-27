@@ -1,8 +1,6 @@
 import mongoose from "mongoose";
-//@ts-ignore
-import Stockin from "./tockIn";
-//@ts-ignore
-import Stockout from "./StockOut";
+import Stockin from "@/db/model/StockIn";
+import Stockout from "@/db/model/StockOut";
 
 const { Schema } = mongoose;
 
