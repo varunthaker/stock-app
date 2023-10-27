@@ -1,5 +1,5 @@
 import { FormEvent } from "react";
-import { StockOutArray } from "../../../db/model/Stockout";
+import { StockOutArray } from "../../../db/model/StockOut";
 
 interface StockModalProps {
   closeStockModal: (bool: boolean) => void;
