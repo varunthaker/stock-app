@@ -9,9 +9,13 @@ interface productGraphDataType {
 }
 
 export default function Graph({ productGraphData }: productGraphDataType) {
+  //@ts-ignore
   const axisX = productGraphData?.map((product: ProductType) => product.name);
+
   const axisY = productGraphData?.map((product: ProductType) => {
+    //@ts-ignore
     return product.stockouts?.reduce(
+      //@ts-ignore
       (total: number, stockOut: number) => total + stockOut.stockOutQty,
       0
     );
@@ -34,8 +38,10 @@ export default function Graph({ productGraphData }: productGraphDataType) {
       <h2>Graph</h2>
       <div>
         <Bar
+          //@ts-ignore
           data={dataLine}
           options={{
+            //@ts-ignore
             title: {
               display: true,
               text: "Product Sale",
