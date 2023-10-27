@@ -52,6 +52,7 @@ export default function InventoryAnalysisTable({
               return (
                 <tr
                   {...row.getRowProps()}
+                  // @ts-ignore
                   style={{ color: isLowStock ? "red" : null }}
                 >
                   {row.cells.map((cell, index) => {
