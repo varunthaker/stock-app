@@ -65,15 +65,15 @@ export default function Product({ product }: productProp) {
             🗑️
           </button>
         </div>
-      </div>
-      <div>
-        {openModal && (
-          <Modal
-            closeModal={setOpenModal}
-            deleteProduct={handleDelete}
-            id={_id}
-          />
-        )}
+        <div>
+          {openModal && (
+            <Modal
+              closeModal={setOpenModal}
+              deleteProduct={handleDelete}
+              id={_id}
+            />
+          )}
+        </div>
       </div>
     </div>
   );

@@ -36,7 +36,7 @@ export default function ProductPage({
 
   return (
     <>
-      <div className={classes.products_page}>
+      <div className={`${classes.products_page} `}>
         <h1 className={classes.page_header}>Products</h1>
         <div className={classes.search_container}>
           <input
@@ -46,7 +46,7 @@ export default function ProductPage({
             onChange={(event) => handleInputChange(event)}
           ></input>
         </div>
-        <div>
+        <>
           {filteredProducts.length > 0 ? (
             filteredProducts.map((product: ProductType) => {
               return (
@@ -62,7 +62,7 @@ export default function ProductPage({
           ) : (
             <ProductNotFound searchQuery={userSearchInput} />
           )}
-        </div>
+        </>
         <button type="button" className={classes.create_button}>
           <Link href="/products/create" className={classes.create_link}>
             Create

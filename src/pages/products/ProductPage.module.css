@@ -5,6 +5,10 @@
   margin: 5%;
   position: relative;
 }
+/* .blurred {
+  filter: blur(5px);
+  ${}
+} */
 
 .page_header {
   color: #4285f4;

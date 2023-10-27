@@ -30,24 +30,37 @@
 .input {
   width: 100%;
   padding: 10px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid #4285f4;
   border-radius: 3px;
   font-size: 16px;
 }
 
 .textarea {
   font-family: inherit;
-  border: 1px solid #ccc;
+  border: 1px solid #4285f4;
   border-radius: 0.5rem;
-  padding: 0.5rem;
+  font-size: 16px;
+  padding: 10px;
 }
 
 .create_button,
 .cancel_button {
-  background-color: #ededed;
-  color: #4285f4;
-  border: 2px solid #4285f4;
+  background-color: #4285f4;
+  color: #ededed;
+  border: solid 2px #4285f4;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  text-decoration: none;
+  transition-duration: 1s;
+}
+
+.cancel_button {
+  background-color: #ffb341;
+  color: #ededed;
+  border: solid 2px #ffb341;
   padding: 10px 20px;
   margin-top: 10px;
   cursor: pointer;
@@ -59,12 +72,19 @@
 
 .link {
   text-decoration: none;
-  color: #4285f4;
+  color: #ededed;
 }
 
 .create_button:hover {
-  background-color: #ffb341;
+  background-color: #ededed;
+  color: #4285f4;
 }
 .cancel_button:hover {
-  background-color: #ffb341;
+  background-color: #ededed;
+  color: #ffb341;
+}
+
+.link:hover {
+  background-color: #ededed;
+  color: #ffb341;
 }

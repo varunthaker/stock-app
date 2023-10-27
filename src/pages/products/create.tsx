@@ -47,7 +47,7 @@ export default function CreateProduct() {
           cols={50}
         />
         <label className={classes.label} htmlFor="imgSrc">
-          image URL
+          Image URL
         </label>
         <input
           className={classes.input}
