@@ -5,6 +5,7 @@ import Link from "next/link";
 import useSWR from "swr";
 import { useState } from "react";
 import Modal from "@/components/modal";
+import classes from "./product.module.css";
 
 interface productProp {
   product: ProductType;
@@ -32,28 +33,48 @@ export default function Product({ product }: productProp) {
   }
 
   return (
-    <>
-      <h1>{name}</h1>
-      <p>Description: {description}</p>
-      <Image
-        src={imageSrc as string}
-        width={250}
-        height={250}
-        alt="Picture of the author"
-      />
-      <p>Price: €{price}</p>
-      <p>Stock: {stockQty}units</p>
-      <button>
-        <Link href={`/products/${_id}/update`}>Update</Link>
-      </button>
-      <button onClick={() => setOpenModal(true)}>Delete</button>
-      {openModal && (
-        <Modal
-          closeModal={setOpenModal}
-          deleteProduct={handleDelete}
-          id={_id}
+    <div className={classes.product}>
+      <div>
+        <Image
+          className={classes.product_image}
+          width={250}
+          height={250}
+          src={imageSrc as string}
+          alt="Picture of the author"
         />
-      )}
-    </>
+      </div>
+      <div className={classes.product_info}>
+        <h1 className={classes.product_header}>{name}</h1>
+        <p className={classes.product_description}>{description}</p>
+
+        <p className={classes.product_stockInfo}>Price: € {price}</p>
+        <p className={classes.product_stockInfo}>Stock: {stockQty} units</p>
+        <div>
+          <button className={classes.update_button}>
+            <Link
+              className={classes.update_link}
+              href={`/products/${_id}/update`}
+            >
+              ✏️
+            </Link>
+          </button>
+          <button
+            className={classes.delete_button}
+            onClick={() => setOpenModal(true)}
+          >
+            🗑️
+          </button>
+        </div>
+        <div>
+          {openModal && (
+            <Modal
+              closeModal={setOpenModal}
+              deleteProduct={handleDelete}
+              id={_id}
+            />
+          )}
+        </div>
+      </div>
+    </div>
   );
 }

@@ -5,6 +5,7 @@ import { ProductType } from "../../../db/model/Product";
 import { useState } from "react";
 import Link from "next/link";
 import ProductNotFound from "@/components/product/productnotfound";
+import classes from "./ProductPage.module.css";
 
 interface ProductPageProps {
   closeModal: () => void;
@@ -35,32 +36,39 @@ export default function ProductPage({
 
   return (
     <>
-      <h1>Products</h1>
-      <div>
-        <input
-          type="text"
-          placeholder="Search products"
-          onChange={(event) => handleInputChange(event)}
-        ></input>
+      <div className={`${classes.products_page} `}>
+        <h1 className={classes.page_header}>Products</h1>
+        <div className={classes.search_container}>
+          <input
+            className={classes.input}
+            type="text"
+            placeholder="🔎    Search "
+            onChange={(event) => handleInputChange(event)}
+          ></input>
+        </div>
+        <>
+          {filteredProducts.length > 0 ? (
+            filteredProducts.map((product: ProductType) => {
+              return (
+                <div key={product._id}>
+                  <Product
+                    product={product}
+                    closeModal={closeModal}
+                    deleteProduct={deleteProduct}
+                  />
+                </div>
+              );
+            })
+          ) : (
+            <ProductNotFound searchQuery={userSearchInput} />
+          )}
+        </>
+        <button type="button" className={classes.create_button}>
+          <Link href="/products/create" className={classes.create_link}>
+            Create
+          </Link>
+        </button>
       </div>
-      <ul>
-        {filteredProducts.length > 0 ? (
-          filteredProducts.map((product: ProductType) => {
-            return (
-              <li key={product._id}>
-                <Product
-                  product={product}
-                  closeModal={closeModal}
-                  deleteProduct={deleteProduct}
-                />
-              </li>
-            );
-          })
-        ) : (
-          <ProductNotFound searchQuery={userSearchInput} />
-        )}
-      </ul>
-      <Link href="/products/create">Create</Link>
       <Layout />
     </>
   );

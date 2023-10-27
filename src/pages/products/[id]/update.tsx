@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import { FormEvent } from "react";
 import useSWR from "swr";
 import Link from "next/link";
+import classes from "../create.module.css";
 
 export default function UpdateProduct() {
   const router = useRouter();
@@ -30,28 +31,45 @@ export default function UpdateProduct() {
   }
 
   return (
-    <>
-      <h3>Update Form</h3>
-      <form onSubmit={(event) => updateProduct(event)}>
-        <label htmlFor="name">Name</label>
-        <input type="text" name="name" id="name" defaultValue={name} />
-        <label htmlFor="description">Description</label>
+    <div className={classes.create_product}>
+      <h3 className={classes.form_header}>Update Product</h3>
+      <form className={classes.form} onSubmit={(event) => updateProduct(event)}>
+        <label className={classes.label} htmlFor="name">
+          Name
+        </label>
+        <input
+          className={classes.input}
+          type="text"
+          name="name"
+          id="name"
+          defaultValue={name}
+        />
+        <label className={classes.label} htmlFor="description">
+          Description
+        </label>
         <textarea
+          className={classes.textarea}
           name="description"
           id="description"
           rows={4}
           cols={50}
           defaultValue={description}
         />
-        <label htmlFor="imgSrc">imageURL</label>
+        <label className={classes.label} htmlFor="imgSrc">
+          Image URL
+        </label>
         <input
+          className={classes.input}
           type="text"
           name="imageSrc"
           id="imageSrc"
           defaultValue={imageSrc}
         />
-        <label htmlFor="price">Price</label>
+        <label className={classes.label} htmlFor="price">
+          Price
+        </label>
         <input
+          className={classes.input}
           type="number"
           name="price"
           id="price"
@@ -59,27 +77,37 @@ export default function UpdateProduct() {
           min="0"
           step=".01"
         />
-        <label htmlFor="stockQty">stockQty</label>
+        <label className={classes.label} htmlFor="stockQty">
+          StockQty
+        </label>
         <input
+          className={classes.input}
           type="number"
           name="stockQty"
           id="stockQty"
           min="0"
           defaultValue={stockQty}
         />
-        <label htmlFor="minStockQty">minStockQty</label>
+        <label className={classes.label} htmlFor="minStockQty">
+          Min Stock Qty
+        </label>
         <input
+          className={classes.input}
           type="number"
           name="minStockQty"
           id="minStockQty"
           defaultValue={minStockQty}
           min="0"
         />
-        <button type="submit">Update</button>
-        <button type="button">
-          <Link href="/products">Back</Link>
+        <button type="submit" className={classes.create_button}>
+          Update
+        </button>
+        <button className={classes.cancel_button} type="button">
+          <Link className={classes.link} href="/products">
+            Back
+          </Link>
         </button>
       </form>
-    </>
+    </div>
   );
 }
