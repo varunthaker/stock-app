@@ -1,8 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import dbConnect from "../../../../../db/connect";
-import Product from "../../../../../db/model/Product";
-import Stockin from "../../../../../db/model/Stockin";
-import { StockInArray } from "../../../../../db/model/Stockin";
+import dbConnect from "@/db/connect";
+import Product from "@/db/model/Product";
+import Stockin from "@/db/model/StockIn";
 
 export default async function handler(
   request: NextApiRequest,

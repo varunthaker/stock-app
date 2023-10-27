@@ -7,7 +7,7 @@ import {
   StyleSheet,
 } from "@react-pdf/renderer";
 import { useState } from "react";
-import { ProductType } from "../../../db/model/Product";
+import { ProductType } from "@/db/model/Product";
 
 const styles = StyleSheet.create({
   page: {

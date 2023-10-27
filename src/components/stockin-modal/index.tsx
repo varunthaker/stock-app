@@ -1,6 +1,5 @@
 import { FormEvent } from "react";
-// @ts-ignore
-import { StockInArray } from "../../../db/model/StockIn";
+import { StockInArray } from "@/db/model/StockIn";
 
 interface StockModalProps {
   closeStockModal: (bool: boolean) => void;

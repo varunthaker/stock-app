@@ -1,6 +1,7 @@
 import { Bar } from "react-chartjs-2";
 import { CategoryScale, Chart, registerables } from "chart.js";
-import { ProductType } from "../../../db/model/Product";
+import { ProductType } from "@/db/model/Product";
+
 Chart.register(CategoryScale);
 Chart.register(...registerables);
 
