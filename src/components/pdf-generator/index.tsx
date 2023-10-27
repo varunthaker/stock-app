@@ -48,7 +48,7 @@ interface DataPrintType {
 
 export default function PDFGenerator({ dataToPrint }: DataPrintType) {
   const [showPdf, setShowPdf] = useState<boolean>(false);
-
+  // @ts-ignore
   const finalData = dataToPrint?.map((objectData: ProductType) => {
     return {
       name: objectData.name,
