@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
-import Stockin from "./Stockin";
-import Stockout from "./Stockout";
+import Stockin from "./StockIn";
+import Stockout from "./StockOut";
 
 const { Schema } = mongoose;
 
