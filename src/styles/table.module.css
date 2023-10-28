@@ -1,0 +1,40 @@
+.tableMainContainer {
+  background-color: #ededed;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.table_header {
+  color: #4285f4;
+  font-size: 1.2rem;
+}
+
+.analysis {
+  padding: 0.2rem;
+}
+
+.description {
+  font-size: 0.8rem;
+}
+
+.tableSubContainer {
+  margin-top: 0.5rem;
+}
+.table {
+  border-collapse: collapse;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.th,
+.td {
+  padding: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  font-size: 0.8rem;
+  border: #727272 1px solid;
+}
+.th {
+  text-align: left;
+}

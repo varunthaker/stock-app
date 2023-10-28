@@ -4,6 +4,8 @@ import { ProductType } from "@/db/model/Product";
 import { useTable } from "react-table";
 import React from "react";
 
+import classes from "@/styles/table.module.css";
+
 interface InventoryAnalysisTable {
   productTableData: ProductType;
 }
@@ -26,15 +28,18 @@ export default function InventoryAnalysisTable({
     useTable({ columns, data: TableData });
 
   return (
-    <>
-      <h2>Table</h2>
-      <div>
-        <table {...getTableProps()}>
+    <div className={classes.tableMainContainer}>
+      <h2 className={classes.table_header}>Product Purchase</h2>
+      <p className={classes.description}>
+        Quick Overview for Product to be Purchase
+      </p>
+      <div className={classes.tableSubContainer}>
+        <table className={classes.table} {...getTableProps()}>
           <thead>
             {headerGroups.map((headerGroup) => (
               <tr {...headerGroup.getHeaderGroupProps()}>
                 {headerGroup.headers.map((column) => (
-                  <th {...column.getHeaderProps()}>
+                  <th className={classes.th} {...column.getHeaderProps()}>
                     {column.render("Header")}
                   </th>
                 ))}
@@ -42,7 +47,7 @@ export default function InventoryAnalysisTable({
             ))}
           </thead>
           <tbody {...getTableBodyProps()}>
-            {rows.map((row, index) => {
+            {rows.map((row) => {
               prepareRow(row);
 
               const isLowStock = row.values.stockQty < row.values.minStockQty;
@@ -51,11 +56,13 @@ export default function InventoryAnalysisTable({
                 <tr
                   {...row.getRowProps()}
                   // @ts-ignore
-                  style={{ color: isLowStock ? "red" : null }}
+                  style={{ color: isLowStock ? "#CD124A" : null }}
                 >
-                  {row.cells.map((cell, index) => {
+                  {row.cells.map((cell) => {
                     return (
-                      <td {...cell.getCellProps()}>{cell.render("Cell")} </td>
+                      <td className={classes.td} {...cell.getCellProps()}>
+                        {cell.render("Cell")}{" "}
+                      </td>
                     );
                   })}
                 </tr>
@@ -64,6 +71,6 @@ export default function InventoryAnalysisTable({
           </tbody>
         </table>
       </div>
-    </>
+    </div>
   );
 }
