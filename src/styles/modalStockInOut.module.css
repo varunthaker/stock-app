@@ -1,0 +1,106 @@
+.modalBackground {
+  background-color: rgba(200, 200, 200);
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .body {
+  flex: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #4285f4;
+} */
+
+/* .modalContainer {
+  width: 20rem;
+  height: 10rem;
+  border-radius: 12px;
+  background-color: #ededed;
+  box-shadow: #4285f4 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+} */
+
+.form {
+  display: grid;
+  gap: 0.5rem;
+  max-width: auto;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ededed;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: #4285f4 0px 5px 15px;
+}
+.form_header {
+  color: #4285f4;
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 1rem;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.input {
+  width: 100%;
+  padding: 0.25rem;
+  border: 1px solid #4285f4;
+  border-radius: 3px;
+  font-size: 1rem;
+}
+
+.buttonContainer {
+  flex: 20%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.deleteBtn,
+.NoSubmitBtn {
+  width: 5rem;
+  height: 2rem;
+  margin: 0.5rem;
+  background-color: #cd124a;
+  border: solid 1px #4285f4;
+  color: white;
+  border-radius: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.5s background-color;
+}
+
+.cancelBtn,
+.submitBtn {
+  width: 5rem;
+  height: 2rem;
+  margin: 0.5rem;
+  background-color: white;
+  border: solid 1px #4285f4;
+  color: #4285f4;
+  border-radius: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.5s background-color;
+}
+
+.deleteBtn:hover,
+.NoSubmitBtn:hover {
+  color: #4285f4;
+  background-color: white;
+}
+
+.cancelBtn:hover,
+.submitBtn:hover {
+  background-color: #4285f4;
+  color: white;
+}

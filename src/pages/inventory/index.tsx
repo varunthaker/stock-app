@@ -3,6 +3,7 @@ import InventoryProduct from "@/components/inventory";
 import useSWR from "swr";
 import { ProductType } from "@/db/model/Product";
 import PDFGenerator from "@/components/pdf-generator";
+import classes from "@/styles/InventoryPage.module.css";
 
 export default function InventoryPage() {
   const {
@@ -15,8 +16,8 @@ export default function InventoryPage() {
   if (isLoading) return <div>loading...</div>;
 
   return (
-    <>
-      <h1>Inventory</h1>
+    <div className={classes.inventory_page}>
+      <h1 className={classes.page_header}>Inventory</h1>
       <div>
         {products?.map((product: ProductType) => {
           return (
@@ -26,8 +27,11 @@ export default function InventoryPage() {
           );
         })}
       </div>
-      <PDFGenerator dataToPrint={products} />
+      <div className={classes.print_button}>
+        <PDFGenerator dataToPrint={products} />
+      </div>
+
       <Layout />
-    </>
+    </div>
   );
 }

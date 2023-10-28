@@ -5,7 +5,9 @@ import { ProductType } from "@/db/model/Product";
 import { useState } from "react";
 import Link from "next/link";
 import ProductNotFound from "@/components/product/productnotfound";
-import classes from "./ProductPage.module.css";
+import classes from "@/styles/ProductPage.module.css";
+import ProfileInfo from "@/components/profile/info";
+import Image from "next/image";
 
 interface ProductPageProps {
   closeModal: () => void;
@@ -17,6 +19,7 @@ export default function ProductPage({
   deleteProduct,
 }: ProductPageProps) {
   const [userSearchInput, setUserSearchInput] = useState("");
+  const [userInfo, setUserInfo] = useState<boolean | null>(null);
   const {
     data: products,
     error,
@@ -36,7 +39,7 @@ export default function ProductPage({
 
   return (
     <>
-      <div className={`${classes.products_page} `}>
+      <div className={classes.products_page}>
         <h1 className={classes.page_header}>Products</h1>
         <div className={classes.search_container}>
           <input
@@ -70,6 +73,17 @@ export default function ProductPage({
         </button>
       </div>
       <Layout />
+      {/* <div className={classes.avatar_container}>
+        <button className={classes.avatarBtn} onClick={() => setUserInfo(true)}>
+          <Image
+            width={50}
+            height={50}
+            src="https://png.pngtree.com/png-vector/20220624/ourmid/pngtree-unknown-user-question-mark-about-png-image_5178068.png"
+            alt="Avtar Image"
+          ></Image>
+        </button>
+        {userInfo && <ProfileInfo />}
+      </div> */}
     </>
   );
 }

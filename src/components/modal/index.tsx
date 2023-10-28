@@ -1,4 +1,4 @@
-import classes from "./modal.module.css";
+import classes from "@/styles/modal.module.css";
 interface ModalProps {
   closeModal: (bool: boolean) => void;
   deleteProduct: (id: string) => void;

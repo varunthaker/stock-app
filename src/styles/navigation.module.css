@@ -1,0 +1,22 @@
+.NavigationMenu {
+  background-color: #ededed;
+  width: 100%;
+  padding: 0.8rem 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.button {
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 2rem;
+}
+
+.active {
+  background-color: #ffb341;
+}

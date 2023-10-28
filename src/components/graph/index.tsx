@@ -1,6 +1,7 @@
 import { Bar } from "react-chartjs-2";
 import { CategoryScale, Chart, registerables } from "chart.js";
 import { ProductType } from "@/db/model/Product";
+import classes from "@/styles/AnalysisPage.module.css";
 
 Chart.register(CategoryScale);
 Chart.register(...registerables);
@@ -35,9 +36,10 @@ export default function Graph({ productGraphData }: productGraphDataType) {
     ],
   };
   return (
-    <>
-      <h2>Graph</h2>
-      <div>
+    <div className={classes.chart}>
+      <h2 className={classes.chart_header}>Product Sale</h2>
+      <p className={classes.description}>Quick Overview for Product Sale</p>
+      <div className={classes.chartSubContainer}>
         <Bar
           //@ts-ignore
           data={dataLine}
@@ -55,6 +57,6 @@ export default function Graph({ productGraphData }: productGraphDataType) {
           }}
         />
       </div>
-    </>
+    </div>
   );
 }

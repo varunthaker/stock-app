@@ -1,0 +1,44 @@
+.inventory_page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 5%;
+  position: relative;
+  margin-bottom: 5rem;
+}
+
+.page_header {
+  color: #4285f4;
+  font-size: 36px;
+}
+
+.print_button {
+  position: fixed;
+  z-index: 3;
+  bottom: 5rem;
+  right: 2rem;
+  background-color: #c6c6c6;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 7%;
+  font-size: 1.5rem;
+}
+
+.cancelBtn {
+  width: 5rem;
+  height: 2rem;
+  margin: 0.5rem;
+  background-color: #cd124a;
+  border: solid 1px #4285f4;
+  color: white;
+  border-radius: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.5s background-color;
+}
+
+.cancelBtn:hover {
+  color: #4285f4;
+  background-color: white;
+}

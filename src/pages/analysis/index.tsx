@@ -2,6 +2,7 @@ import Layout from "@/components/layout/Layout";
 import useSWR from "swr";
 import InventoryAnalysisTable from "@/components/table";
 import Graph from "@/components/graph";
+import classes from "@/styles/AnalysisPage.module.css";
 
 export default function Analysis() {
   const {
@@ -14,9 +15,13 @@ export default function Analysis() {
 
   return (
     <>
-      <h1>Analysis</h1>
-      <Graph productGraphData={products} />
-      <InventoryAnalysisTable productTableData={products} />
+      <div className={classes.analysis_page}>
+        <h1 className={classes.page_header}>Dashboard</h1>
+        <div className={classes.analysis}>
+          <Graph productGraphData={products} />
+          <InventoryAnalysisTable productTableData={products} />
+        </div>
+      </div>
       <Layout />
     </>
   );
