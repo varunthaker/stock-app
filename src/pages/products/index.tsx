@@ -6,6 +6,8 @@ import { useState } from "react";
 import Link from "next/link";
 import ProductNotFound from "@/components/product/productnotfound";
 import classes from "@/styles/ProductPage.module.css";
+import ProfileInfo from "@/components/profile/info";
+import Image from "next/image";
 
 interface ProductPageProps {
   closeModal: () => void;
@@ -17,6 +19,7 @@ export default function ProductPage({
   deleteProduct,
 }: ProductPageProps) {
   const [userSearchInput, setUserSearchInput] = useState("");
+  const [userInfo, setUserInfo] = useState<boolean | null>(null);
   const {
     data: products,
     error,
@@ -70,6 +73,17 @@ export default function ProductPage({
         </button>
       </div>
       <Layout />
+      {/* <div className={classes.avatar_container}>
+        <button className={classes.avatarBtn} onClick={() => setUserInfo(true)}>
+          <Image
+            width={50}
+            height={50}
+            src="https://png.pngtree.com/png-vector/20220624/ourmid/pngtree-unknown-user-question-mark-about-png-image_5178068.png"
+            alt="Avtar Image"
+          ></Image>
+        </button>
+        {userInfo && <ProfileInfo />}
+      </div> */}
     </>
   );
 }

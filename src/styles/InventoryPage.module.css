@@ -4,6 +4,7 @@
   justify-content: center;
   margin: 5%;
   position: relative;
+  margin-bottom: 5rem;
 }
 
 .page_header {
@@ -14,8 +15,8 @@
 .print_button {
   position: fixed;
   z-index: 3;
-  bottom: 4rem;
-  right: 3rem;
+  bottom: 5rem;
+  right: 2rem;
   background-color: #c6c6c6;
   border: none;
   padding: 5px 10px;

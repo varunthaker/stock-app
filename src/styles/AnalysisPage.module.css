@@ -4,6 +4,8 @@
   justify-content: center;
   margin: 5%;
   position: relative;
+  margin-bottom: 5rem;
+  margin-top: 3rem;
 }
 /* .blurred {
     filter: blur(5px);
