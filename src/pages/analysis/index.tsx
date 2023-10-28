@@ -14,13 +14,15 @@ export default function Analysis() {
   if (isLoading) return <div>loading...</div>;
 
   return (
-    <div className={classes.analysis_page}>
-      <h1 className={classes.page_header}>Dashboard</h1>
-      <div className={classes.analysis}>
-        <Graph productGraphData={products} />
-        <InventoryAnalysisTable productTableData={products} />
+    <>
+      <div className={classes.analysis_page}>
+        <h1 className={classes.page_header}>Dashboard</h1>
+        <div className={classes.analysis}>
+          <Graph productGraphData={products} />
+          <InventoryAnalysisTable productTableData={products} />
+        </div>
       </div>
       <Layout />
-    </div>
+    </>
   );
 }

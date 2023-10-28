@@ -59,7 +59,7 @@ export default function Product({ product }: productProp) {
               className={classes.update_link}
               href={`/products/${_id}/update`}
             >
-              ✏️
+              🖊️
             </Link>
           </button>
           <button
