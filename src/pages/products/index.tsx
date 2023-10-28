@@ -5,7 +5,7 @@ import { ProductType } from "@/db/model/Product";
 import { useState } from "react";
 import Link from "next/link";
 import ProductNotFound from "@/components/product/productnotfound";
-import classes from "./ProductPage.module.css";
+import classes from "@/styles/ProductPage.module.css";
 
 interface ProductPageProps {
   closeModal: () => void;

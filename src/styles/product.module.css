@@ -4,7 +4,7 @@
   margin-top: 20px;
 }
 .product_header {
-  font-size: 28px;
+  font-size: 1.25rem;
   color: #4285f4;
 }
 
@@ -13,17 +13,17 @@
 }
 
 .product_info {
-  margin-left: 25px;
+  margin-left: 1.25rem;
 }
 
 .product_description {
   color: #727272;
-  font-size: 20px;
-  margin: 5px 0;
+  font-size: 0.8rem;
+  margin: 3px 0;
 }
 
 .product_stockInfo {
-  font-size: 20px;
+  font-size: 0.8rem;
   margin: 5px 0;
 }
 
@@ -35,7 +35,7 @@
   cursor: pointer;
   border-radius: 10%;
   margin-right: 10px;
-  font-size: 20px;
+  font-size: 1rem;
   color: #ededed;
 }
 .update_link {

@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { FormEvent } from "react";
 import useSWR from "swr";
 import Link from "next/link";
-import classes from "../create.module.css";
+import classes from "@/styles/create.module.css";
 
 export default function UpdateProduct() {
   const router = useRouter();

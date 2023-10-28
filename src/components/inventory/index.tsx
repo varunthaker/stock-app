@@ -6,7 +6,7 @@ import { StockOutArray } from "@/db/model/StockOut";
 import { STOCK_UPDATE } from "@/constants/general";
 import StockInModal from "../stockin-modal";
 import StockOutModal from "../stockout-modal";
-import classes from "@/components/product/product/product.module.css";
+import classes from "@/styles/product.module.css";
 
 interface InventoryProductProps {
   product: ProductType;

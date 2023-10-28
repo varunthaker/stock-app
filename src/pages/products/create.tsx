@@ -1,7 +1,7 @@
 import { FormEvent } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import classes from "./create.module.css";
+import classes from "@/styles/create.module.css";
 
 export default function CreateProduct() {
   const router = useRouter();
@@ -35,7 +35,13 @@ export default function CreateProduct() {
         <label className={classes.label} htmlFor="name">
           Name
         </label>
-        <input className={classes.input} type="text" name="name" id="name" />
+        <input
+          className={classes.input}
+          type="text"
+          name="name"
+          id="name"
+          required
+        />
         <label className={classes.label} htmlFor="description">
           Description
         </label>
@@ -66,6 +72,7 @@ export default function CreateProduct() {
           id="price"
           min="0"
           step=".01"
+          required
         />
         <label className={classes.label} htmlFor="stockQty">
           Stock Qty
@@ -76,6 +83,7 @@ export default function CreateProduct() {
           name="stockQty"
           id="stockQty"
           min="0"
+          required
         />
         <label className={classes.label} htmlFor="minStockQty">
           Min Stock Qty
@@ -86,6 +94,7 @@ export default function CreateProduct() {
           name="minStockQty"
           id="minStockQty"
           min="0"
+          required
         />
         <button type="submit" className={classes.create_button}>
           Create

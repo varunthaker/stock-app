@@ -5,7 +5,7 @@ import Link from "next/link";
 import useSWR from "swr";
 import { useState } from "react";
 import Modal from "@/components/modal";
-import classes from "./product.module.css";
+import classes from "@/styles/product.module.css";
 
 interface productProp {
   product: ProductType;
@@ -37,15 +37,19 @@ export default function Product({ product }: productProp) {
       <div>
         <Image
           className={classes.product_image}
-          width={250}
-          height={250}
+          width={150}
+          height={150}
           src={imageSrc as string}
           alt="Picture of the author"
         />
       </div>
       <div className={classes.product_info}>
         <h1 className={classes.product_header}>{name}</h1>
-        <p className={classes.product_description}>{description}</p>
+        <p className={classes.product_description}>
+          {description.length > 25
+            ? `${description.substring(0, 25)}...`
+            : description}
+        </p>
 
         <p className={classes.product_stockInfo}>Price € {price}</p>
         <p className={classes.product_stockInfo}>Stock {stockQty} units</p>

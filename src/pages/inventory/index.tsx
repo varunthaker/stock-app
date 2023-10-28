@@ -3,7 +3,7 @@ import InventoryProduct from "@/components/inventory";
 import useSWR from "swr";
 import { ProductType } from "@/db/model/Product";
 import PDFGenerator from "@/components/pdf-generator";
-import classes from "@/pages/inventory/InventoryPage.module.css";
+import classes from "@/styles/InventoryPage.module.css";
 
 export default function InventoryPage() {
   const {
