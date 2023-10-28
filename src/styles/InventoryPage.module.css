@@ -13,14 +13,31 @@
 
 .print_button {
   position: fixed;
-  z-index: 1;
-  bottom: 50px;
-  right: 50px;
-
+  z-index: 3;
+  bottom: 4rem;
+  right: 3rem;
+  background-color: #c6c6c6;
   border: none;
-  padding: 10px 20px;
+  padding: 5px 10px;
   cursor: pointer;
   border-radius: 7%;
-  text-decoration: none;
-  font-size: 24px;
+  font-size: 1.5rem;
+}
+
+.cancelBtn {
+  width: 5rem;
+  height: 2rem;
+  margin: 0.5rem;
+  background-color: #cd124a;
+  border: solid 1px #4285f4;
+  color: white;
+  border-radius: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.5s background-color;
+}
+
+.cancelBtn:hover {
+  color: #4285f4;
+  background-color: white;
 }

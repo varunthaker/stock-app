@@ -8,6 +8,7 @@ import {
 } from "@react-pdf/renderer";
 import { useState } from "react";
 import { ProductType } from "@/db/model/Product";
+import classes from "@/styles/InventoryPage.module.css";
 
 const styles = StyleSheet.create({
   page: {
@@ -67,10 +68,14 @@ export default function PDFGenerator({ dataToPrint }: DataPrintType) {
 
   return (
     <div>
-      <button onClick={generatePDF}>🖨</button>
+      <button className={classes.print_button} onClick={generatePDF}>
+        🖨
+      </button>
       {showPdf && (
         <div>
-          <button onClick={closePDFViewer}>Cancel</button>
+          <button className={classes.cancelBtn} onClick={closePDFViewer}>
+            Cancel
+          </button>
           <PDFViewer style={{ width: "100%", height: "500px" }}>
             <MyDocument dataToPrint={finalData}></MyDocument>
           </PDFViewer>

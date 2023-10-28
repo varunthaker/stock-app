@@ -51,8 +51,8 @@ export default function Product({ product }: productProp) {
             : description}
         </p>
 
-        <p className={classes.product_stockInfo}>Price € {price}</p>
-        <p className={classes.product_stockInfo}>Stock {stockQty} units</p>
+        <p className={classes.product_stockInfo}>Price: € {price}</p>
+        <p className={classes.product_stockInfo}>Stock: {stockQty} units</p>
         <div>
           <button className={classes.update_button}>
             <Link

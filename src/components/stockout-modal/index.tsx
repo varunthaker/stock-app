@@ -1,5 +1,6 @@
 import { FormEvent } from "react";
 import { StockOutArray } from "@/db/model/StockOut";
+import classes from "@/styles/modalStockInOut.module.css";
 
 interface StockModalProps {
   closeStockModal: (bool: boolean) => void;
@@ -22,26 +23,57 @@ export default function StockOutModal({
   }
 
   return (
-    <>
-      <h4>Stock Out Modal</h4>
-      <form onSubmit={(event) => handleSubmitForm(event)}>
-        <label htmlFor="stockOutQty"> Stock* </label>
-        <input
-          type="number"
-          name="stockOutQty"
-          id="stockOutQty"
-          required
-          max={maxStockQty}
-        />
-        <label htmlFor="date"> Date:* </label>
-        <input type="date" name="date" id="date" required />
-        <label htmlFor="reference"> Reference </label>
-        <input type="text" name="reference" id="reference" />
-        <button type="button" onClick={() => closeStockModal(false)}>
-          Cancel
-        </button>
-        <button type="submit">Submit</button>
-      </form>
-    </>
+    <div className={classes.modalBackground}>
+      <div>
+        <form
+          onSubmit={(event) => handleSubmitForm(event)}
+          className={classes.form}
+        >
+          <h4 className={classes.form_header}>Stock Out</h4>
+          <label htmlFor="stockOutQty" className={classes.label}>
+            Qty
+          </label>
+          <input
+            type="number"
+            name="stockOutQty"
+            id="stockOutQty"
+            required
+            max={maxStockQty}
+            className={classes.input}
+          />
+          <label htmlFor="date" className={classes.label}>
+            Date:
+          </label>
+          <input
+            type="date"
+            name="date"
+            id="date"
+            className={classes.input}
+            required
+          />
+          <label htmlFor="reference" className={classes.label}>
+            Reference
+          </label>
+          <input
+            className={classes.input}
+            type="text"
+            name="reference"
+            id="reference"
+          />
+          <div className={classes.buttonContainer}>
+            <button
+              type="button"
+              onClick={() => closeStockModal(false)}
+              className={classes.NoSubmitBtn}
+            >
+              Cancel
+            </button>
+            <button className={classes.submitBtn} type="submit">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
   );
 }
