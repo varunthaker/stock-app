@@ -1,32 +1,12 @@
 .modalBackground {
   background-color: rgba(200, 200, 200);
-  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  top: 20%;
+  left: 15%;
 }
-
-/* .body {
-  flex: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin-top: 10px;
-  font-size: 1rem;
-  color: #4285f4;
-} */
-
-/* .modalContainer {
-  width: 20rem;
-  height: 10rem;
-  border-radius: 12px;
-  background-color: #ededed;
-  box-shadow: #4285f4 0px 5px 15px;
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-} */
 
 .form {
   display: grid;
@@ -39,6 +19,7 @@
   border-radius: 12px;
   box-shadow: #4285f4 0px 5px 15px;
 }
+
 .form_header {
   color: #4285f4;
   font-size: 1.5rem;

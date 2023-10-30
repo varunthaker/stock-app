@@ -10,7 +10,7 @@ export default function Modal({ closeModal, deleteProduct, id }: ModalProps) {
     <div className={classes.modalBackground}>
       <div className={classes.modalContainer}>
         <p className={classes.body}>
-          Are you sure you want to delete this Product?{" "}
+          Are you sure you want to delete this Product?
         </p>
         <div className={classes.buttonContainer}>
           <button
