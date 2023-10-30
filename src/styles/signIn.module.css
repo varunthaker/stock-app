@@ -1,0 +1,75 @@
+.homePage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin-bottom: 5rem;
+}
+
+.appHeader {
+  color: #4285f4;
+  font-size: 2.5rem;
+  padding-bottom: 4rem;
+}
+
+.signInDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.signHeader {
+  color: #cd124a;
+  font-size: 1rem;
+  font-weight: bold;
+  padding-bottom: 1rem;
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+.signInBtn {
+  width: 5rem;
+  height: 2rem;
+  margin: 0.5rem;
+  background-color: #4285f4;
+  border: solid 1px #4285f4;
+  color: white;
+  border-radius: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.5s background-color;
+}
+
+.signInBtn:hover {
+  color: #4285f4;
+  background-color: white;
+}
+
+/* userInfo */
+
+.userinfoDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.userName {
+  color: #ffb341;
+  font-size: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+.userImage {
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.userInfo {
+  color: #ffb341;
+  font-size: 1rem;
+  padding-bottom: 1rem;
+  font-weight: bold;
+}

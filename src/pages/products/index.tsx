@@ -19,7 +19,6 @@ export default function ProductPage({
   deleteProduct,
 }: ProductPageProps) {
   const [userSearchInput, setUserSearchInput] = useState("");
-  const [userInfo, setUserInfo] = useState<boolean | null>(null);
   const {
     data: products,
     error,
@@ -82,7 +81,7 @@ export default function ProductPage({
             alt="Avtar Image"
           ></Image>
         </button>
-        {userInfo && <ProfileInfo />}
+        {userInfo && <ProfileInfo session={session} />}
       </div> */}
     </>
   );

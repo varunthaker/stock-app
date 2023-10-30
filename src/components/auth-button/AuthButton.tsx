@@ -1,4 +1,5 @@
 import { useSession, signIn, signOut } from "next-auth/react";
+import classes from "@/styles/signIn.module.css";
 
 export default function AuthButton() {
   const { data: session } = useSession();
@@ -6,13 +7,16 @@ export default function AuthButton() {
   if (session) {
     return (
       <>
-        <button onClick={() => signOut()}>Sign out</button>
+        <button className={classes.signInBtn} onClick={() => signOut()}>
+          Sign out
+        </button>
       </>
     );
   }
   return (
     <>
       <button
+        className={classes.signInBtn}
         onClick={() => {
           signIn("google", { callbackUrl: "/products" });
         }}

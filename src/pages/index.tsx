@@ -1,10 +1,11 @@
 import Profile from "@/components/profile";
+import classes from "@/styles/signIn.module.css";
 
 export default function Home() {
   return (
-    <>
-      <h1>Stock-App (HomePage)</h1>
+    <div className={classes.homePage}>
+      <h1 className={classes.appHeader}>Inventur App</h1>
       <Profile />
-    </>
+    </div>
   );
 }
