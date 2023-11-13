@@ -43,13 +43,19 @@
   padding: 10px;
 }
 
-.create_button,
-.cancel_button {
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-self: center;
+}
+
+.create_button {
   background-color: #4285f4;
   color: #ededed;
   border: solid 2px #4285f4;
   padding: 10px 20px;
   margin-top: 10px;
+
   cursor: pointer;
   border-radius: 5px;
   font-size: 16px;
@@ -58,33 +64,24 @@
 }
 
 .cancel_button {
-  background-color: #ffb341;
-  color: #ededed;
-  border: solid 2px #ffb341;
+  background-color: #ededed;
+  color: #4285f4;
+  border: solid 2px #4285f4;
   padding: 10px 20px;
   margin-top: 10px;
+  margin-right: 10px;
   cursor: pointer;
   border-radius: 5px;
   font-size: 16px;
   text-decoration: none;
-  transition-duration: 1s;
-}
-
-.link {
-  text-decoration: none;
-  color: #ededed;
+  transition-duration: 0.5s;
 }
 
 .create_button:hover {
   background-color: #ededed;
-  color: #4285f4;
+  color: #2471ed;
 }
 .cancel_button:hover {
-  background-color: #ededed;
-  color: #ffb341;
-}
-
-.link:hover {
-  background-color: #ededed;
-  color: #ffb341;
+  color: #ededed;
+  background-color: #4285f4;
 }

@@ -9,6 +9,7 @@ import {
 import { useState } from "react";
 import { ProductType } from "@/db/model/Product";
 import classes from "@/styles/InventoryPage.module.css";
+import PrintIcon from "@/icons/print.svg";
 
 const styles = StyleSheet.create({
   page: {
@@ -69,7 +70,7 @@ export default function PDFGenerator({ dataToPrint }: DataPrintType) {
   return (
     <div>
       <button className={classes.print_button} onClick={generatePDF}>
-        🖨
+        <PrintIcon className={classes.printIcon} />
       </button>
       {showPdf && (
         <div>

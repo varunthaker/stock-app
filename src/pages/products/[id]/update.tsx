@@ -99,14 +99,16 @@ export default function UpdateProduct() {
           defaultValue={minStockQty}
           min="0"
         />
-        <button type="submit" className={classes.create_button}>
-          Update
-        </button>
-        <button className={classes.cancel_button} type="button">
+        <div className={classes.buttonContainer}>
           <Link className={classes.link} href="/products">
-            Back
+            <button className={classes.cancel_button} type="button">
+              Close
+            </button>
           </Link>
-        </button>
+          <button type="submit" className={classes.create_button}>
+            Update
+          </button>
+        </div>
       </form>
     </div>
   );

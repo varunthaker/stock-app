@@ -18,5 +18,11 @@
 }
 
 .active {
-  background-color: #ffb341;
+  color: #ffb341;
+}
+
+.iconStyle {
+  width: 45px;
+  height: 45px;
+  fill: #727272;
 }
