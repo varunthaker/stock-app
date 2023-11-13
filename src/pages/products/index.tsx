@@ -65,11 +65,12 @@ export default function ProductPage({
             <ProductNotFound searchQuery={userSearchInput} />
           )}
         </>
-        <button type="button" className={classes.create_button}>
-          <Link href="/products/create" className={classes.create_link}>
-            Create
-          </Link>
-        </button>
+
+        <Link href="/products/create" className={classes.create_link}>
+          <button type="button" className={classes.create_button}>
+            +
+          </button>
+        </Link>
       </div>
       <Layout />
       {/* <div className={classes.avatar_container}>

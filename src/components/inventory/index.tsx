@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import { ProductType } from "@/db/model/Product";
 import { StockInArray } from "@/db/model/StockIn";
 import { StockOutArray } from "@/db/model/StockOut";
@@ -77,7 +77,7 @@ export default function InventoryProduct({
         <h4 className={classes.product_header}>{name}</h4>
         <p className={classes.product_stockInfo}>Stock: {stockQty} units</p>
         <p className={classes.product_stockInfo}>
-          Min Stock Qty: {minStockQty} units
+          Min Stock: {minStockQty} units
         </p>
         <div>
           <button
@@ -86,13 +86,13 @@ export default function InventoryProduct({
               handleStockUpdate(STOCK_UPDATE.IN);
             }}
           >
-            ➕
+            +
           </button>
           <button
             className={classes.removeStockBtn}
             onClick={() => handleStockUpdate(STOCK_UPDATE.OUT)}
           >
-            ➖
+            -
           </button>
         </div>
       </div>
