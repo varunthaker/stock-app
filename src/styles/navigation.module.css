@@ -17,12 +17,11 @@
   font-size: 2rem;
 }
 
-.active {
-  color: #ffb341;
-}
-
 .iconStyle {
   width: 45px;
   height: 45px;
   fill: #727272;
+}
+.active {
+  fill: #41a4ff;
 }

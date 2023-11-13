@@ -1,5 +1,4 @@
 .tableMainContainer {
-  background-color: #ededed;
   margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
@@ -8,7 +7,7 @@
 
 .table_header {
   color: #4285f4;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .analysis {
@@ -17,6 +16,7 @@
 
 .description {
   font-size: 0.8rem;
+  color: #4285f4;
 }
 
 .tableSubContainer {
@@ -25,15 +25,19 @@
 .table {
   border-collapse: collapse;
   overflow: hidden;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border: #4285f4 1px solid;
+}
+
+.thead {
+  color: #4285f4;
 }
 
 .th,
 .td {
   padding: 0.5rem;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: #ededed;
   font-size: 0.8rem;
-  border: #727272 1px solid;
+  border: #727272 1px solid transparent;
 }
 .th {
   text-align: left;

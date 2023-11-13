@@ -77,7 +77,7 @@ export default function InventoryProduct({
         <h4 className={classes.product_header}>{name}</h4>
         <p className={classes.product_stockInfo}>Stock: {stockQty} units</p>
         <p className={classes.product_stockInfo}>
-          Min Stock Qty: {minStockQty} units
+          Min Stock: {minStockQty} units
         </p>
         <div>
           <button

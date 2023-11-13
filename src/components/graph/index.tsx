@@ -28,16 +28,20 @@ export default function Graph({ productGraphData }: productGraphDataType) {
     datasets: [
       {
         label: "Product Sale in Unit",
-        backgroundColor: "rgba(75,192,192,1)",
+        backgroundColor: [
+          "rgba(65, 164, 255, 0.6)", // Start color with transparency
+          "rgba(65, 164, 255, 0.8)", // Middle color with transparency
+          "rgba(65, 164, 255, 1)",
+        ], // End color with transparency,
         data: axisY,
         fill: false,
-        borderColor: "#742774",
+        borderColor: "rgba(65, 164, 255, 0.2)",
       },
     ],
   };
   return (
     <div className={classes.chart}>
-      <h2 className={classes.chart_header}>Product Sale</h2>
+      <p className={classes.chart_header}>Product Sale</p>
       <p className={classes.description}>Quick Overview for Product Sale</p>
       <div className={classes.chartSubContainer}>
         <Bar

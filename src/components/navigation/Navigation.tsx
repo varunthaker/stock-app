@@ -1,6 +1,6 @@
 import Link from "next/link";
 import classes from "@/styles/navigation.module.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { TAB } from "@/constants/general";
 import ProductIcon from "@/icons/Products.svg";
 import InventoryIcon from "@/icons/inventory.svg";
@@ -9,6 +9,8 @@ export default function Navigation() {
   const [activeTab, setActiveTab] = useState<string | null>(null);
 
   function handleTabClick(tabName: string) {
+    console.log("tab name", tabName);
+
     setActiveTab(tabName);
   }
 
@@ -16,39 +18,45 @@ export default function Navigation() {
     <div className={classes.NavigationMenu}>
       <Link href="/products">
         <button
-          className={
-            activeTab === TAB.PRODUCT
-              ? `${classes.active} ${classes.button} `
-              : classes.button
-          }
+          className={classes.button}
           onClick={() => handleTabClick(TAB.PRODUCT)}
         >
-          <ProductIcon className={classes.iconStyle} />
+          <ProductIcon
+            className={
+              activeTab === TAB.PRODUCT
+                ? `${classes.active} ${classes.iconStyle} `
+                : classes.iconStyle
+            }
+          />
         </button>
       </Link>
 
       <Link href="/inventory">
         <button
-          className={
-            activeTab === TAB.INVENTORY
-              ? `${classes.active} ${classes.button} `
-              : classes.button
-          }
+          className={classes.button}
           onClick={() => handleTabClick(TAB.INVENTORY)}
         >
-          <InventoryIcon className={classes.iconStyle} />
+          <InventoryIcon
+            className={
+              activeTab === TAB.INVENTORY
+                ? `${classes.active} ${classes.iconStyle} `
+                : classes.iconStyle
+            }
+          />
         </button>
       </Link>
       <Link href="/analysis">
         <button
-          className={
-            activeTab === TAB.ANALYSIS
-              ? `${classes.active} ${classes.button} `
-              : classes.button
-          }
+          className={classes.button}
           onClick={() => handleTabClick(TAB.ANALYSIS)}
         >
-          <AnalysisIcon className={classes.iconStyle} />
+          <AnalysisIcon
+            className={
+              activeTab === TAB.ANALYSIS
+                ? `${classes.active} ${classes.iconStyle} `
+                : classes.iconStyle
+            }
+          />
         </button>
       </Link>
     </div>
