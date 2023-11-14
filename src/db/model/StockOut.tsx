@@ -2,13 +2,13 @@ import mongoose from "mongoose";
 
 const { Schema } = mongoose;
 
-export type StockOutArray = {
+export type StockOut = {
   date: string;
-  stockOutQty: Number;
+  stockOutQty: number;
   reference: string;
 };
 
-const stockoutSchema = new Schema<StockOutArray>({
+const stockoutSchema = new Schema<StockOut>({
   date: String,
   stockOutQty: Number,
   reference: String,

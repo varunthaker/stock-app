@@ -2,12 +2,11 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: [
-      "avatars.githubusercontent.com",
-      "lh3.googleusercontent.com",
-      "images.unsplash.com",
-      "plus.unsplash.com",
-      "png.pngtree.com",
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**",
+      },
     ],
   },
   webpack(config) {

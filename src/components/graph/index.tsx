@@ -2,23 +2,21 @@ import { Bar } from "react-chartjs-2";
 import { CategoryScale, Chart, registerables } from "chart.js";
 import { ProductType } from "@/db/model/Product";
 import classes from "@/styles/AnalysisPage.module.css";
+import { StockOut } from "@/db/model/StockOut";
 
 Chart.register(CategoryScale);
 Chart.register(...registerables);
 
 interface productGraphDataType {
-  productGraphData: ProductType;
+  productGraphData: ProductType[];
 }
 
 export default function Graph({ productGraphData }: productGraphDataType) {
-  //@ts-ignore
   const axisX = productGraphData?.map((product: ProductType) => product.name);
 
   const axisY = productGraphData?.map((product: ProductType) => {
-    //@ts-ignore
     return product.stockouts?.reduce(
-      //@ts-ignore
-      (total: number, stockOut: number) => total + stockOut.stockOutQty,
+      (total: number, stockOut: StockOut) => total + stockOut.stockOutQty,
       0
     );
   });
@@ -45,8 +43,8 @@ export default function Graph({ productGraphData }: productGraphDataType) {
       <p className={classes.description}>Quick Overview for Product Sale</p>
       <div className={classes.chartSubContainer}>
         <Bar
-          //@ts-ignore
           data={dataLine}
+          title="Product Sale"
           options={{
             //@ts-ignore
             title: {

@@ -48,12 +48,13 @@
 .removeStockBtn {
   background-color: #41a4ff;
   border: none;
-  padding: 5px 12px;
+  padding: 5px 10px;
   cursor: pointer;
   border-radius: 50%;
   margin-right: 0.8rem;
   margin-top: 0.8rem;
   font-size: 1.5rem;
+  font-weight: bold;
   color: #ededed;
 }
 .iconStyle {

@@ -60,7 +60,7 @@ export default function CreateProduct() {
           type="text"
           name="imageSrc"
           id="imageSrc"
-          placeholder="Enter valid URL"
+          placeholder="Enter URL starts with https"
         />
         <label className={classes.label} htmlFor="price">
           Price

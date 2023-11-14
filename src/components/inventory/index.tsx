@@ -2,7 +2,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { ProductType } from "@/db/model/Product";
 import { StockInArray } from "@/db/model/StockIn";
-import { StockOutArray } from "@/db/model/StockOut";
+import { StockOut } from "@/db/model/StockOut";
 import { STOCK_UPDATE } from "@/constants/general";
 import StockInModal from "../stockin-modal";
 import StockOutModal from "../stockout-modal";
@@ -45,7 +45,7 @@ export default function InventoryProduct({
     }
   }
 
-  async function StockOut(stockOutData: StockOutArray) {
+  async function StockOut(stockOutData: StockOut) {
     const response = await fetch(`/api/products/${id}/stockout`, {
       method: "PATCH",
       headers: {

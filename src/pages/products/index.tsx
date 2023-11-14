@@ -7,7 +7,9 @@ import Link from "next/link";
 import ProductNotFound from "@/components/product/productnotfound";
 import classes from "@/styles/ProductPage.module.css";
 import ProfileInfo from "@/components/profile/info";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
+import defaultImage from "@/icons/user.png";
 
 interface ProductPageProps {
   closeModal: () => void;
@@ -19,6 +21,8 @@ export default function ProductPage({
   deleteProduct,
 }: ProductPageProps) {
   const [userSearchInput, setUserSearchInput] = useState("");
+  const [userInfo, setUserInfo] = useState(false);
+  const { data: session } = useSession();
   const {
     data: products,
     error,
@@ -27,7 +31,6 @@ export default function ProductPage({
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;
 
-  // console.log("Products are", products);
   const filteredProducts = products.filter((product: ProductType) => {
     return product.name.toLowerCase().includes(userSearchInput.toLowerCase());
   });
@@ -38,6 +41,31 @@ export default function ProductPage({
 
   return (
     <>
+      <button
+        className={classes.avatarBtn}
+        onClick={() => setUserInfo(!userInfo)}
+      >
+        {!userInfo && (
+          <Image
+            className={classes.userImage}
+            width={60}
+            height={60}
+            //@ts-ignore
+            src={session ? session.user?.image : defaultImage}
+            alt="UserImage"
+            priority
+          />
+        )}
+      </button>
+      {userInfo && (
+        <div className={classes.avatar_container}>
+          <ProfileInfo
+            //@ts-ignore
+            session={session}
+            userInfostatus={setUserInfo}
+          />
+        </div>
+      )}
       <div className={classes.products_page}>
         <h1 className={classes.page_header}>Products</h1>
         <div className={classes.search_container}>
@@ -73,17 +101,6 @@ export default function ProductPage({
         </Link>
       </div>
       <Layout />
-      {/* <div className={classes.avatar_container}>
-        <button className={classes.avatarBtn} onClick={() => setUserInfo(true)}>
-          <Image
-            width={50}
-            height={50}
-            src="https://png.pngtree.com/png-vector/20220624/ourmid/pngtree-unknown-user-question-mark-about-png-image_5178068.png"
-            alt="Avtar Image"
-          ></Image>
-        </button>
-        {userInfo && <ProfileInfo session={session} />}
-      </div> */}
     </>
   );
 }

@@ -44,18 +44,20 @@ const MyDocument = ({ dataToPrint }: DataPrintType) => (
   </Document>
 );
 
+type PrintData = Pick<ProductType, "name" | "stockQty" | "minStockQty">;
+
 interface DataPrintType {
-  dataToPrint: ProductType | unknown;
+  dataToPrint: PrintData[];
 }
 
 export default function PDFGenerator({ dataToPrint }: DataPrintType) {
   const [showPdf, setShowPdf] = useState<boolean>(false);
-  // @ts-ignore
-  const finalData = dataToPrint?.map((objectData: ProductType) => {
+
+  const finalData = dataToPrint.map((objectData: PrintData) => {
     return {
       name: objectData.name,
-      Stock: objectData.stockQty,
-      minStock: objectData.minStockQty,
+      stockQty: objectData.stockQty,
+      minStockQty: objectData.minStockQty,
     };
   });
 
