@@ -7,7 +7,11 @@ export default function Profile() {
 
   return (
     <section>
-      {session ? <ProfileInfo session={session} /> : <SignIn />}
+      {session ? ( //@ts-ignore
+        <ProfileInfo session={session} />
+      ) : (
+        <SignIn />
+      )}
     </section>
   );
 }
