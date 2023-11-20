@@ -6,8 +6,6 @@ import React from "react";
 
 import classes from "@/styles/table.module.css";
 
-import { TemplateContext } from "next/dist/shared/lib/app-router-context.shared-runtime";
-
 interface InventoryAnalysisTable {
   productTableData: ProductType;
 }

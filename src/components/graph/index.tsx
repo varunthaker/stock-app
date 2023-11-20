@@ -27,10 +27,10 @@ export default function Graph({ productGraphData }: productGraphDataType) {
       {
         label: "Product Sale in Unit",
         backgroundColor: [
-          "rgba(65, 164, 255, 0.6)", // Start color with transparency
-          "rgba(65, 164, 255, 0.8)", // Middle color with transparency
+          "rgba(65, 164, 255, 0.6)",
+          "rgba(65, 164, 255, 0.8)",
           "rgba(65, 164, 255, 1)",
-        ], // End color with transparency,
+        ],
         data: axisY,
         fill: false,
         borderColor: "rgba(65, 164, 255, 0.2)",
