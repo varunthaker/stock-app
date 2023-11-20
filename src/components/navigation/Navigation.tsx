@@ -9,8 +9,6 @@ export default function Navigation() {
   const [activeTab, setActiveTab] = useState<string | null>(null);
 
   function handleTabClick(tabName: string) {
-    console.log("tab name", tabName);
-
     setActiveTab(tabName);
   }
 
