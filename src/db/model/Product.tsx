@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import Stockin from "@/db/model/StockIn";
-import Stockout from "@/db/model/StockOut";
+import Stockout, { StockOut } from "@/db/model/StockOut";
 
 const { Schema } = mongoose;
 
@@ -10,20 +10,7 @@ type StockInArray = {
   reference: string;
 };
 
-type StockOutArray = {
-  date: string;
-  stockOutQty: Number;
-  reference: string;
-};
-
 export interface ProductType {
-  map(
-    arg0: (objectData: ProductType) => {
-      name: string;
-      Stock: number;
-      minStock: number;
-    }
-  ): unknown;
   _id: string;
   name: string;
   description: string;
@@ -32,7 +19,7 @@ export interface ProductType {
   stockQty: number;
   minStockQty: number;
   stockins: StockInArray;
-  stockouts: StockOutArray;
+  stockouts: StockOut[];
 }
 
 const productSchema = new Schema<ProductType>({

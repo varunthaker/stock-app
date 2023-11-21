@@ -1,8 +1,8 @@
 import Image from "next/image";
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import { ProductType } from "@/db/model/Product";
 import { StockInArray } from "@/db/model/StockIn";
-import { StockOutArray } from "@/db/model/StockOut";
+import { StockOut } from "@/db/model/StockOut";
 import { STOCK_UPDATE } from "@/constants/general";
 import StockInModal from "../stockin-modal";
 import StockOutModal from "../stockout-modal";
@@ -45,7 +45,7 @@ export default function InventoryProduct({
     }
   }
 
-  async function StockOut(stockOutData: StockOutArray) {
+  async function StockOut(stockOutData: StockOut) {
     const response = await fetch(`/api/products/${id}/stockout`, {
       method: "PATCH",
       headers: {
@@ -77,7 +77,7 @@ export default function InventoryProduct({
         <h4 className={classes.product_header}>{name}</h4>
         <p className={classes.product_stockInfo}>Stock: {stockQty} units</p>
         <p className={classes.product_stockInfo}>
-          Min Stock Qty: {minStockQty} units
+          Min Stock: {minStockQty} units
         </p>
         <div>
           <button
@@ -86,13 +86,13 @@ export default function InventoryProduct({
               handleStockUpdate(STOCK_UPDATE.IN);
             }}
           >
-            ➕
+            +
           </button>
           <button
             className={classes.removeStockBtn}
             onClick={() => handleStockUpdate(STOCK_UPDATE.OUT)}
           >
-            ➖
+            -
           </button>
         </div>
       </div>

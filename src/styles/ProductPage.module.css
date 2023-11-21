@@ -4,21 +4,30 @@
   justify-content: center;
   margin: 5%;
   position: relative;
-  margin-top: 3rem;
   margin-bottom: 5rem;
-}
-.blurred {
-  filter: blur(5px);
+  margin-top: 5rem;
 }
 
 .avatar_container {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 1rem;
+  right: 1rem;
+  width: 50%;
+  z-index: 5;
 }
 
 .avatarBtn {
   border-radius: 50%;
+  border: none;
+  padding: 0;
+  position: fixed;
+  right: 2rem;
+  top: 2rem;
+}
+
+.userImage {
+  border-radius: 50%;
+  border: #ffb341 3px solid;
 }
 
 .page_header {
@@ -45,17 +54,14 @@
 .create_button {
   position: fixed;
   z-index: 1;
-  bottom: 5.5rem;
+  bottom: 6rem;
   right: 2rem;
+  font-size: 2rem;
+  font-weight: bolder;
   background-color: #4285f4;
   border: none;
   padding: 5px 10px;
   cursor: pointer;
-  border-radius: 7%;
-}
-
-.create_link {
-  text-decoration: none;
-  font-size: 1rem;
+  border-radius: 50%;
   color: #ededed;
 }

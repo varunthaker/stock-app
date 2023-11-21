@@ -9,6 +9,7 @@ import {
 import { useState } from "react";
 import { ProductType } from "@/db/model/Product";
 import classes from "@/styles/InventoryPage.module.css";
+import PrintIcon from "@/icons/print.svg";
 
 const styles = StyleSheet.create({
   page: {
@@ -43,18 +44,20 @@ const MyDocument = ({ dataToPrint }: DataPrintType) => (
   </Document>
 );
 
+type PrintData = Pick<ProductType, "name" | "stockQty" | "minStockQty">;
+
 interface DataPrintType {
-  dataToPrint: ProductType | unknown;
+  dataToPrint: PrintData[];
 }
 
 export default function PDFGenerator({ dataToPrint }: DataPrintType) {
   const [showPdf, setShowPdf] = useState<boolean>(false);
-  // @ts-ignore
-  const finalData = dataToPrint?.map((objectData: ProductType) => {
+
+  const finalData = dataToPrint.map((objectData: PrintData) => {
     return {
       name: objectData.name,
-      Stock: objectData.stockQty,
-      minStock: objectData.minStockQty,
+      stockQty: objectData.stockQty,
+      minStockQty: objectData.minStockQty,
     };
   });
 
@@ -69,7 +72,7 @@ export default function PDFGenerator({ dataToPrint }: DataPrintType) {
   return (
     <div>
       <button className={classes.print_button} onClick={generatePDF}>
-        🖨
+        <PrintIcon className={classes.printIcon} />
       </button>
       {showPdf && (
         <div>

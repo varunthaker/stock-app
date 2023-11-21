@@ -1,10 +1,10 @@
 import { FormEvent } from "react";
-import { StockOutArray } from "@/db/model/StockOut";
+import { StockOut } from "@/db/model/StockOut";
 import classes from "@/styles/modalStockInOut.module.css";
 
 interface StockModalProps {
   closeStockModal: (bool: boolean) => void;
-  handleStockOut: (data: StockOutArray) => void;
+  handleStockOut: (data: StockOut) => void;
   maxStockQty: number;
 }
 
@@ -18,7 +18,7 @@ export default function StockOutModal({
     const formElement = event.currentTarget;
     const formData = new FormData(formElement);
     const data = Object.fromEntries(formData);
-    handleStockOut(data as unknown as StockOutArray);
+    handleStockOut(data as unknown as StockOut);
     closeStockModal(false);
   }
 

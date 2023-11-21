@@ -29,13 +29,13 @@ export default function InventoryAnalysisTable({
 
   return (
     <div className={classes.tableMainContainer}>
-      <h2 className={classes.table_header}>Product Purchase</h2>
+      <p className={classes.table_header}>Product Purchase</p>
       <p className={classes.description}>
         Quick Overview for Product to be Purchase
       </p>
       <div className={classes.tableSubContainer}>
         <table className={classes.table} {...getTableProps()}>
-          <thead>
+          <thead className={classes.thead}>
             {headerGroups.map((headerGroup) => (
               <tr {...headerGroup.getHeaderGroupProps()}>
                 {headerGroup.headers.map((column) => (

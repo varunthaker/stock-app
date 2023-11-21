@@ -60,7 +60,7 @@ export default function CreateProduct() {
           type="text"
           name="imageSrc"
           id="imageSrc"
-          placeholder="Enter valid URL"
+          placeholder="Enter URL starts with https"
         />
         <label className={classes.label} htmlFor="price">
           Price
@@ -96,14 +96,17 @@ export default function CreateProduct() {
           min="0"
           required
         />
-        <button type="submit" className={classes.create_button}>
-          Create
-        </button>
-        <button className={classes.cancel_button} type="button">
-          <Link className={classes.link} href="/products">
-            Cancel
+
+        <div className={classes.buttonContainer}>
+          <Link href="/products">
+            <button className={classes.cancel_button} type="button">
+              Close
+            </button>
           </Link>
-        </button>
+          <button type="submit" className={classes.create_button}>
+            Create
+          </button>
+        </div>
       </form>
     </div>
   );
